@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-using SVG.Forms.Plugin.Abstractions;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace InterfaceBuilder
 {

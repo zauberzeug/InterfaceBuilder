@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Timers;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
