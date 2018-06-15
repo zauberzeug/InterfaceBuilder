@@ -13,7 +13,6 @@ namespace InterfaceBuilder
         {
             public static Color Text = Color.Black;
             public static Color Background = Color.White;
-
         }
 
         public static class Colors
