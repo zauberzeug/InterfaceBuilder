@@ -35,6 +35,9 @@ namespace InterfaceBuilder
             public static readonly string ArrowUpDown = "";
             public static readonly string Key = "";
             public static readonly string InfoCircle = "";
+            public static readonly string Dashboard = "";
+            public static readonly string FileEdit = "";
+            public static readonly string Signal = "";
         }
     }
 }
