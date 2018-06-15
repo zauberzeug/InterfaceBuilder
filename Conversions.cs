@@ -7,7 +7,7 @@ namespace InterfaceBuilder
     {
         public static ContentPage InPage(this View view)
         {
-            return UI.Page("", view);
+            return UI.Current.Page("", view);
         }
 
         public static NavigationPage InNavigation(this Page page)

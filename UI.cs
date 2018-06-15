@@ -5,9 +5,19 @@ using Xamarin.Forms;
 
 namespace InterfaceBuilder
 {
-    public static class UI
+    public class UI
     {
-        public static Label Label(string text = "")
+        public Theme Theme { get; private set; }
+
+        public static UI Current;
+
+        public UI(Theme theme = null)
+        {
+            this.Theme = theme ?? new Theme();
+            Current = this;
+        }
+
+        public Label Label(string text = "")
         {
             return new Label
             {
@@ -18,15 +28,15 @@ namespace InterfaceBuilder
             }.Text(text);
         }
 
-        public static StackLayout Action(string text = "", ElusiveIcon icon = null)
+        public StackLayout Action(string text = "", string icon = null)
         {
-            var stack = UI.Stack().Horizontal().Padding(new Thickness(10, 0));
+            var stack = Stack().Horizontal().Padding(new Thickness(10, 0));
             if (icon != null)
-                stack.Children.Insert(0, icon);
-            return stack.With(UI.Label(text));
+                stack.Children.Insert(0, Icon(icon));
+            return stack.With(Label(text));
         }
 
-        public static StackLayout Stack()
+        public StackLayout Stack()
         {
             return new StackLayout
             {
@@ -35,7 +45,7 @@ namespace InterfaceBuilder
             };
         }
 
-        public static BoxView Box(int size)
+        public BoxView Box(int size)
         {
             return new BoxView
             {
@@ -45,7 +55,7 @@ namespace InterfaceBuilder
             };
         }
 
-        public static ContentPage Page(string title, View content)
+        public ContentPage Page(string title, View content)
         {
             return new ContentPage
             {
@@ -54,7 +64,7 @@ namespace InterfaceBuilder
             };
         }
 
-        public static BoxView HorizontalFill()
+        public BoxView HorizontalFill()
         {
             return new BoxView()
             {
@@ -62,7 +72,7 @@ namespace InterfaceBuilder
             };
         }
 
-        public static BoxView VerticalFill()
+        public BoxView VerticalFill()
         {
             return new BoxView()
             {
@@ -70,6 +80,18 @@ namespace InterfaceBuilder
             };
         }
 
-        public static ElusiveIcon Icon(string icon) => new ElusiveIcon(icon);
+        public Label Icon(string icon)
+        {
+            return new Label
+            {
+                Text = icon,
+                VerticalTextAlignment = TextAlignment.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+                MinimumWidthRequest = 1e6, // https://stackoverflow.com/questions/41861020/
+                TextColor = Theme.KeyColors.Text,
+                FontFamily = "Elusive-Icons",
+                FontSize = 25,
+            };
+        }
     }
 }

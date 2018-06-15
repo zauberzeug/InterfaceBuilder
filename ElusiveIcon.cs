@@ -2,19 +2,8 @@
 
 namespace InterfaceBuilder
 {
-    public class ElusiveIcon : Label
+    public class ElusiveIcon
     {
-        public ElusiveIcon(string icon)
-        {
-            Text = icon;
-            VerticalTextAlignment = TextAlignment.Center;
-            HorizontalTextAlignment = TextAlignment.Center;
-            MinimumWidthRequest = 1e6; // https://stackoverflow.com/questions/41861020/
-            TextColor = Theme.Colors.Gray;
-            FontFamily = "Elusive-Icons";
-            FontSize = 25;
-        }
-
         public static class Named
         {
             public static readonly string Checkmark = "";
