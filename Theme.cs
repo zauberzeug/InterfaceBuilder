@@ -9,6 +9,11 @@ namespace InterfaceBuilder
             public static int NormalFont = 18;
         }
 
+        public static class KeyColors
+        {
+            public static Color Text = Color.Black;
+        }
+
         public static class Colors
         {
             public static Color Green = Color.FromHex("BBCA72");

@@ -12,7 +12,7 @@ namespace InterfaceBuilder
             MinimumWidthRequest = 1e6; // https://stackoverflow.com/questions/41861020/
             TextColor = Theme.Colors.Gray;
             FontFamily = "Elusive-Icons";
-            FontSize = 45;
+            FontSize = 25;
         }
 
         public static class Named
@@ -33,6 +33,8 @@ namespace InterfaceBuilder
             public static readonly string Camera = "";
             public static readonly string Circle = "";
             public static readonly string ArrowUpDown = "";
+            public static readonly string Key = "";
+            public static readonly string InfoCircle = "";
         }
     }
 }
