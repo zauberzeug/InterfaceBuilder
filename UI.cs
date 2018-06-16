@@ -18,11 +18,16 @@ namespace InterfaceBuilder
         {
             return new Label
             {
-                HorizontalTextAlignment = TextAlignment.Center,
+                HorizontalTextAlignment = TextAlignment.Start,
                 TextColor = Theme.KeyColors.Text,
                 FontSize = Theme.Sizes.NormalFont,
                 Margin = Theme.Sizes.NormalFont,
             }.Text(text);
+        }
+
+        public Label Headline(string text = "")
+        {
+            return Label(text).Bold();
         }
 
         public StackLayout Action(string text = "", string icon = null)

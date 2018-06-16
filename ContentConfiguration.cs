@@ -17,6 +17,18 @@ namespace InterfaceBuilder
             return label;
         }
 
+        public static Label Bold(this Label label)
+        {
+            label.FontAttributes = FontAttributes.Bold;
+            return label;
+        }
+
+        public static Label Centered(this Label label)
+        {
+            label.HorizontalTextAlignment = TextAlignment.Center;
+            return label;
+        }
+
         public static StackLayout Vertical(this StackLayout layout)
         {
             layout.Orientation = StackOrientation.Vertical;
@@ -59,6 +71,12 @@ namespace InterfaceBuilder
         public static T Padding<T>(this T layout, Thickness thickness) where T : Layout
         {
             layout.Padding = thickness;
+            return layout;
+        }
+
+        public static T Padding<T>(this T layout, int horizontal, int vertical) where T : Layout
+        {
+            layout.Padding = new Thickness(horizontal, vertical);
             return layout;
         }
     }
