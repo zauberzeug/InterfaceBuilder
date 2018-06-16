@@ -26,6 +26,7 @@ namespace InterfaceBuilder
         public Color LightGray = Color.FromHex("EFEFEF");
         public Color Gray = Color.FromHex("3A3E42");
         public Color White = Color.White;
+        public Color Yellow = Color.FromHex("FFDD00");
         public Color Black = Color.FromHex("222");
     }
 }

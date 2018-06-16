@@ -69,7 +69,11 @@ namespace InterfaceBuilder
 
         public Xamarin.Forms.NavigationPage NavigationPage(string title, View content)
         {
-            return Page(title, content).InNavigation();
+            var navigation = new Xamarin.Forms.NavigationPage(Page(title, content));
+            navigation.BarBackgroundColor = Theme.KeyColors.Text;
+            navigation.BarTextColor = Theme.KeyColors.Background;
+
+            return navigation;
         }
 
         public BoxView HorizontalFill()
