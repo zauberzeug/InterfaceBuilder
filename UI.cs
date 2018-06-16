@@ -2,6 +2,7 @@
 
 using SVG.Forms.Plugin.Abstractions;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace InterfaceBuilder
 {
@@ -9,12 +10,9 @@ namespace InterfaceBuilder
     {
         public Theme Theme { get; private set; }
 
-        public static UI Current;
-
         public UI(Theme theme = null)
         {
             this.Theme = theme ?? new Theme();
-            Current = this;
         }
 
         public Label Label(string text = "")
@@ -30,7 +28,7 @@ namespace InterfaceBuilder
 
         public StackLayout Action(string text = "", string icon = null)
         {
-            var stack = Stack().Horizontal().Padding(new Thickness(10, 0));
+            var stack = Stack().Horizontal().Padding(new Thickness(25, 0));
             if (icon != null)
                 stack.Children.Insert(0, Icon(icon));
             return stack.With(Label(text));
@@ -57,11 +55,17 @@ namespace InterfaceBuilder
 
         public ContentPage Page(string title, View content)
         {
-            return new ContentPage
+            var page = new ContentPage
             {
                 Title = title,
                 Content = content,
+                BackgroundColor = Theme.KeyColors.Background,
             };
+
+            page.On<Xamarin.Forms.PlatformConfiguration.iOS>().SetLargeTitleDisplay(LargeTitleDisplayMode.Never);
+            page.On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+
+            return page;
         }
 
         public BoxView HorizontalFill()
