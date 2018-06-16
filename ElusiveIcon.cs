@@ -27,6 +27,7 @@ namespace InterfaceBuilder
             public static readonly string Dashboard = "";
             public static readonly string FileEdit = "";
             public static readonly string Signal = "";
+            public static readonly string Gear = "";
         }
     }
 }

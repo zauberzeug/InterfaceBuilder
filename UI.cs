@@ -1,6 +1,5 @@
 ﻿using System;
 
-using SVG.Forms.Plugin.Abstractions;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
@@ -66,6 +65,11 @@ namespace InterfaceBuilder
             page.On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
 
             return page;
+        }
+
+        public Xamarin.Forms.NavigationPage NavigationPage(string title, View content)
+        {
+            return Page(title, content).InNavigation();
         }
 
         public BoxView HorizontalFill()
