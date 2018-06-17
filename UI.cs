@@ -75,7 +75,7 @@ namespace InterfaceBuilder
         public Xamarin.Forms.NavigationPage NavigationPage(string title, View content)
         {
             var navigation = new Xamarin.Forms.NavigationPage(Page(title, content));
-            navigation.BarBackgroundColor = Theme.KeyColors.Text;
+            navigation.BarBackgroundColor = Theme.KeyColors.NavigationBarBackground;
             navigation.BarTextColor = Theme.KeyColors.Background;
 
             return navigation;

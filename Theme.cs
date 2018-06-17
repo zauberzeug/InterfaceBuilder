@@ -7,6 +7,13 @@ namespace InterfaceBuilder
         public Sizes Sizes = new Sizes();
         public KeyColors KeyColors = new KeyColors();
         public Colors Colors = new Colors();
+
+        public Theme()
+        {
+            KeyColors.Background = Colors.White;
+            KeyColors.Text = Colors.Black;
+            KeyColors.NavigationBarBackground = Colors.Gray;
+        }
     }
 
     public class Sizes
@@ -18,6 +25,7 @@ namespace InterfaceBuilder
     {
         public Color Text = Color.Black;
         public Color Background = Color.White;
+        public Color NavigationBarBackground = Color.Gray;
     }
 
     public class Colors
