@@ -57,6 +57,16 @@ namespace InterfaceBuilder
             };
         }
 
+        public Frame Frame(View content)
+        {
+            return new Frame
+            {
+                BorderColor = Theme.KeyColors.Text,
+                BackgroundColor = Theme.KeyColors.Background,
+                Content = content,
+            }.Padding(5);
+        }
+
         public ContentPage Page(string title, View content)
         {
             var page = new ContentPage
