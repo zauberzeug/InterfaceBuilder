@@ -25,6 +25,18 @@ namespace InterfaceBuilder
             }.Text(text);
         }
 
+        public Xamarin.Forms.Entry Entry(string placeholder = "")
+        {
+            return new Xamarin.Forms.Entry
+            {
+                TextColor = Theme.KeyColors.Text,
+                FontSize = Theme.Sizes.NormalFont,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Placeholder = placeholder,
+                BackgroundColor = Theme.KeyColors.Background,
+            };
+        }
+
         public Label Headline(string text = "")
         {
             return Label(text).Bold();
@@ -63,6 +75,8 @@ namespace InterfaceBuilder
             {
                 BorderColor = Theme.KeyColors.Text,
                 BackgroundColor = Theme.KeyColors.Background,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                HasShadow = false,
                 Content = content,
             }.Padding(5);
         }

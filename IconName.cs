@@ -28,5 +28,8 @@ namespace InterfaceBuilder
         public static readonly string Signal = "";
         public static readonly string Gear = "";
         public static readonly string Remove = "";
+        public static readonly string RemoveSign = "";
+        public static readonly string PlusSign = "";
+
     }
 }

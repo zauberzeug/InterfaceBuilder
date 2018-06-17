@@ -39,6 +39,7 @@ namespace InterfaceBuilder
         public static StackLayout Horizontal(this StackLayout layout)
         {
             layout.Orientation = StackOrientation.Horizontal;
+            layout.VerticalOptions = LayoutOptions.Center;
             layout.HorizontalOptions = LayoutOptions.FillAndExpand;
             return layout;
         }
