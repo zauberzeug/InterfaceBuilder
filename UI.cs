@@ -16,8 +16,7 @@ namespace InterfaceBuilder
 
         public Label Label(string text = "")
         {
-            return new Label
-            {
+            return new Label {
                 HorizontalTextAlignment = TextAlignment.Start,
                 TextColor = Theme.KeyColors.Text,
                 FontSize = Theme.Sizes.NormalFont,
@@ -27,8 +26,7 @@ namespace InterfaceBuilder
 
         public Xamarin.Forms.Entry Entry(string placeholder = "")
         {
-            return new Xamarin.Forms.Entry
-            {
+            return new Xamarin.Forms.Entry {
                 TextColor = Theme.KeyColors.Text,
                 FontSize = Theme.Sizes.NormalFont,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -52,8 +50,7 @@ namespace InterfaceBuilder
 
         public StackLayout Stack()
         {
-            return new StackLayout
-            {
+            return new StackLayout {
                 BackgroundColor = Color.Transparent,
                 Spacing = 0,
             };
@@ -61,8 +58,7 @@ namespace InterfaceBuilder
 
         public BoxView Box(int size)
         {
-            return new BoxView
-            {
+            return new BoxView {
                 BackgroundColor = Color.Transparent,
                 WidthRequest = size,
                 HeightRequest = size,
@@ -71,8 +67,7 @@ namespace InterfaceBuilder
 
         public Frame Frame(View content)
         {
-            return new Frame
-            {
+            return new Frame {
                 BorderColor = Theme.KeyColors.Text,
                 BackgroundColor = Theme.KeyColors.Background,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -83,8 +78,7 @@ namespace InterfaceBuilder
 
         public ContentPage Page(string title, View content)
         {
-            var page = new ContentPage
-            {
+            var page = new ContentPage {
                 Title = title,
                 Content = content,
                 BackgroundColor = Theme.KeyColors.Background,
@@ -107,24 +101,21 @@ namespace InterfaceBuilder
 
         public BoxView HorizontalFill()
         {
-            return new BoxView()
-            {
+            return new BoxView() {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
             };
         }
 
         public BoxView VerticalFill()
         {
-            return new BoxView()
-            {
+            return new BoxView() {
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
         }
 
         public Label Icon(string icon)
         {
-            return new Label
-            {
+            return new Label {
                 Text = icon,
                 VerticalTextAlignment = TextAlignment.Center,
                 HorizontalTextAlignment = TextAlignment.Center,

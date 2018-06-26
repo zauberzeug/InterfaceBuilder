@@ -16,10 +16,8 @@ namespace InterfaceBuilder
 
         public static T OnTap<T>(this T view, Func<Task> func) where T : View
         {
-            view.GestureRecognizers.Add(new TapGestureRecognizer()
-            {
-                Command = new Command(async () =>
-                {
+            view.GestureRecognizers.Add(new TapGestureRecognizer() {
+                Command = new Command(async () => {
                     view.Opacity = 0.5;
                     var gestureRecognizers = view.GestureRecognizers.ToList();
                     view.GestureRecognizers.Clear(); // NOTE: disable other gestures while we execute this action
