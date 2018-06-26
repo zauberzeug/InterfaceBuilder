@@ -115,13 +115,19 @@ namespace InterfaceBuilder
 
         public Label Icon(string icon)
         {
+            var fontFamily = "";
+            if (Device.RuntimePlatform == Device.Android)
+                fontFamily = "Elusive-Icons.ttf#Elusive-Icons Regular";
+            else if (Device.RuntimePlatform == Device.iOS)
+                fontFamily = "Elusive-Icons";
+
             return new Label {
                 Text = icon,
                 VerticalTextAlignment = TextAlignment.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
                 MinimumWidthRequest = 1e6, // https://stackoverflow.com/questions/41861020/
                 TextColor = Theme.KeyColors.Text,
-                FontFamily = "Elusive-Icons",
+                FontFamily = fontFamily,
                 FontSize = 25,
             };
         }
