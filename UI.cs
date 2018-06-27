@@ -9,10 +9,7 @@ namespace InterfaceBuilder
     {
         public Theme Theme { get; private set; }
 
-        public UI(Theme theme = null)
-        {
-            this.Theme = theme ?? new Theme();
-        }
+        public UI(Theme theme = null) => this.Theme = theme ?? new Theme();
 
         public Label Label(string text = "")
         {
@@ -95,7 +92,6 @@ namespace InterfaceBuilder
             var navigation = new Xamarin.Forms.NavigationPage(Page(title, content));
             navigation.BarBackgroundColor = Theme.KeyColors.NavigationBarBackground;
             navigation.BarTextColor = Theme.KeyColors.Background;
-
             return navigation;
         }
 
