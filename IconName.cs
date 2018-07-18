@@ -30,6 +30,6 @@ namespace InterfaceBuilder
         public static readonly string Remove = "";
         public static readonly string RemoveSign = "";
         public static readonly string PlusSign = "";
-
+        public static readonly string Refresh = "";
     }
 }
