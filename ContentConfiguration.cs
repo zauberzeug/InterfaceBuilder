@@ -5,7 +5,7 @@ namespace InterfaceBuilder
 {
     public static class ContentConfiguration
     {
-        public static T Add<T>(this T layout, params View[] views) where T : StackLayout
+        public static T Add<T>(this T layout, params View[] views) where T : Layout<View>
         {
             views.ForEach(v => layout.Children.Add(v));
             return layout;
@@ -14,6 +14,18 @@ namespace InterfaceBuilder
         public static Label Text(this Label label, string text)
         {
             label.Text = text;
+            return label;
+        }
+
+        public static Label Size(this Label label, int size)
+        {
+            label.FontSize = size;
+            return label;
+        }
+
+        public static Label Color(this Label label, Color color)
+        {
+            label.TextColor = color;
             return label;
         }
 
@@ -44,6 +56,19 @@ namespace InterfaceBuilder
             return layout;
         }
 
+        public static T FillHorizontal<T>(this T view) where T : View
+        {
+            view.HorizontalOptions = LayoutOptions.FillAndExpand;
+            return view;
+        }
+
+        public static T Size<T>(this T view, double size) where T : View
+        {
+            view.HeightRequest = size;
+            view.WidthRequest = size;
+            return view;
+        }
+
         public static StackLayout Space(this StackLayout layout, int spacing)
         {
             layout.Spacing = spacing;
@@ -51,7 +76,7 @@ namespace InterfaceBuilder
             return layout;
         }
 
-        public static StackLayout With(this StackLayout layout, params View[] views)
+        public static T With<T>(this T layout, params View[] views) where T : Layout<View>
         {
             layout.Add(views);
             return layout;
@@ -63,7 +88,7 @@ namespace InterfaceBuilder
             return view;
         }
 
-        public static T Background<T>(this T page, Color color) where T : Page
+        public static T Background<T>(this T page, Color color) where T : View
         {
             page.BackgroundColor = color;
             return page;

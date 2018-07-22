@@ -2,6 +2,7 @@
 
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using System.Runtime.InteropServices;
 
 namespace InterfaceBuilder
 {
@@ -17,7 +18,7 @@ namespace InterfaceBuilder
                 HorizontalTextAlignment = TextAlignment.Start,
                 TextColor = Theme.KeyColors.Text,
                 FontSize = Theme.Sizes.NormalFont,
-                Margin = Theme.Sizes.NormalFont,
+                Margin = new Thickness(Theme.Sizes.NormalFont, Theme.Sizes.NormalFont / 2.0),
             }.Text(text);
         }
 
@@ -59,18 +60,30 @@ namespace InterfaceBuilder
                 BackgroundColor = Color.Transparent,
                 WidthRequest = size,
                 HeightRequest = size,
+                Margin = new Thickness(Theme.Sizes.NormalFont, Theme.Sizes.NormalFont / 2.0),
             };
         }
 
         public Frame Frame(View content)
         {
             return new Frame {
-                BorderColor = Theme.KeyColors.Text,
+                //BorderColor = Theme.KeyColors.Text,
                 BackgroundColor = Theme.KeyColors.Background,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 HasShadow = false,
                 Content = content,
+                CornerRadius = 0,
             }.Padding(5);
+        }
+
+        public FlexLayout Flex()
+        {
+            return new FlexLayout() {
+                //AlignItems = FlexAlignItems.Center,
+                JustifyContent = FlexJustify.SpaceEvenly,
+                AlignContent = FlexAlignContent.SpaceEvenly,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+            };
         }
 
         public ContentPage Page(string title, View content)
