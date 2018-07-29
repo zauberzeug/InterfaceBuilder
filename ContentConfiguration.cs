@@ -38,6 +38,7 @@ namespace InterfaceBuilder
         public static Label Centered(this Label label)
         {
             label.HorizontalTextAlignment = TextAlignment.Center;
+            label.VerticalTextAlignment = TextAlignment.Center;
             return label;
         }
 
@@ -92,6 +93,12 @@ namespace InterfaceBuilder
         {
             page.BackgroundColor = color;
             return page;
+        }
+
+        public static T Margin<T>(this T view, Thickness thickness) where T : View
+        {
+            view.Margin = thickness;
+            return view;
         }
 
         public static T Padding<T>(this T layout, Thickness thickness) where T : Layout
