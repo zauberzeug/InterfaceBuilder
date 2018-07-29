@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using System.Linq;
+using TouchTracking.Forms;
 
 namespace InterfaceBuilder
 {
@@ -26,6 +27,19 @@ namespace InterfaceBuilder
                     view.Opacity = 1;
                 })
             });
+            return view;
+        }
+
+        public static T OnTap<T>(this T view, Func<Task> onPressed, Func<Task> onReleased) where T : View
+        {
+            var touchEffect = new TouchEffect { Capture = true };
+            touchEffect.TouchAction += (s, e) => {
+                if (e.Type == TouchTracking.TouchActionType.Pressed)
+                    onPressed();
+                if (e.Type == TouchTracking.TouchActionType.Released)
+                    onReleased();
+            };
+            view.Effects.Add(touchEffect);
             return view;
         }
     }
