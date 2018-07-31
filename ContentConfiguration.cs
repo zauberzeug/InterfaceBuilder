@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
 namespace InterfaceBuilder
@@ -15,6 +16,12 @@ namespace InterfaceBuilder
         {
             label.Text = text;
             return label;
+        }
+
+        public static Entry Text(this Entry entry, string text)
+        {
+            entry.Text = text;
+            return entry;
         }
 
         public static Label Size(this Label label, int size)
@@ -42,6 +49,30 @@ namespace InterfaceBuilder
             return label;
         }
 
+        public static FlexLayout AlignFromStart(this FlexLayout flex)
+        {
+            flex.AlignItems = FlexAlignItems.Start;
+            return flex;
+        }
+
+        public static FlexLayout JustifyFromStart(this FlexLayout flex)
+        {
+            flex.JustifyContent = FlexJustify.Start;
+            return flex;
+        }
+
+        public static FlexLayout StrechChildren(this FlexLayout flex)
+        {
+            flex.AlignItems = FlexAlignItems.Stretch;
+            return flex;
+        }
+
+        public static FlexLayout Centered(this FlexLayout flex)
+        {
+            flex.AlignItems = FlexAlignItems.Center;
+            return flex;
+        }
+
         public static StackLayout Vertical(this StackLayout layout)
         {
             layout.Orientation = StackOrientation.Vertical;
@@ -57,9 +88,39 @@ namespace InterfaceBuilder
             return layout;
         }
 
+        public static FlexLayout AsRow(this FlexLayout layout)
+        {
+            layout.Direction = FlexDirection.Row;
+            return layout;
+        }
+
+        public static FlexLayout Strech(this FlexLayout layout)
+        {
+            layout.AlignContent = FlexAlignContent.Stretch;
+            return layout;
+        }
+
+        public static FlexLayout AsColumn(this FlexLayout layout)
+        {
+            layout.Direction = FlexDirection.Column;
+            return layout;
+        }
+
         public static T FillHorizontal<T>(this T view) where T : View
         {
             view.HorizontalOptions = LayoutOptions.FillAndExpand;
+            return view;
+        }
+
+        public static T Fill<T>(this T view) where T : View
+        {
+            view.HorizontalOptions = LayoutOptions.Fill;
+            return view;
+        }
+
+        public static T Grow<T>(this T view) where T : View
+        {
+            FlexLayout.SetGrow(view, 1);
             return view;
         }
 
@@ -67,6 +128,12 @@ namespace InterfaceBuilder
         {
             view.HeightRequest = size;
             view.WidthRequest = size;
+            return view;
+        }
+
+        public static T Height<T>(this T view, double size) where T : View
+        {
+            view.HeightRequest = size;
             return view;
         }
 
@@ -83,6 +150,13 @@ namespace InterfaceBuilder
             return layout;
         }
 
+        public static T With<T, V>(this T layout, Action<V> action, params V[] views) where T : Layout<View> where V : View
+        {
+            views.ForEach(v => action(v));
+            layout.Add(views);
+            return layout;
+        }
+
         public static T Content<T>(this ContentPage page, T view) where T : View
         {
             page.Content(view);
@@ -93,6 +167,12 @@ namespace InterfaceBuilder
         {
             page.BackgroundColor = color;
             return page;
+        }
+
+        public static T Margin<T>(this T view, int horizontal, int vertical) where T : View
+        {
+            view.Margin = new Thickness(horizontal, vertical);
+            return view;
         }
 
         public static T Margin<T>(this T view, Thickness thickness) where T : View

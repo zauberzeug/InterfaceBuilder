@@ -30,6 +30,7 @@ namespace InterfaceBuilder
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Placeholder = placeholder,
                 BackgroundColor = Theme.KeyColors.Background,
+                Margin = new Thickness(Theme.Sizes.NormalFont, Theme.Sizes.NormalFont / 2.0),
             };
         }
 
@@ -51,6 +52,13 @@ namespace InterfaceBuilder
             return new StackLayout {
                 BackgroundColor = Color.Transparent,
                 Spacing = 0,
+            };
+        }
+
+        public BoxView Box()
+        {
+            return new BoxView {
+                BackgroundColor = Color.Transparent,
             };
         }
 
@@ -79,8 +87,8 @@ namespace InterfaceBuilder
         public FlexLayout Flex()
         {
             return new FlexLayout() {
-                //AlignItems = FlexAlignItems.Center,
-                JustifyContent = FlexJustify.SpaceEvenly,
+                AlignItems = FlexAlignItems.Center,
+                JustifyContent = FlexJustify.SpaceBetween,
                 AlignContent = FlexAlignContent.SpaceEvenly,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
             };
