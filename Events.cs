@@ -7,7 +7,7 @@ using TouchTracking.Forms;
 
 namespace InterfaceBuilder
 {
-    public static class Tapable
+    public static class Events
     {
         public static T OnTap<T>(this T view, Action action) where T : View
         {
@@ -41,6 +41,18 @@ namespace InterfaceBuilder
             };
             view.Effects.Add(touchEffect);
             return view;
+        }
+
+        public static Entry OnChange(this Entry entry, EventHandler<TextChangedEventArgs> action)
+        {
+            entry.TextChanged += action;
+            return entry;
+        }
+
+        public static Entry OnCompleted(this Entry entry, EventHandler action)
+        {
+            entry.Completed += action;
+            return entry;
         }
     }
 }
