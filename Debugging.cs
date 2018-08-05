@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace InterfaceBuilder
 {
-    public static class ColorizeEverythingExtension
+    public static class Debugging
     {
         static readonly List<Color> colors = new List<Color> {
             Color.FromHex("eff3ff"),
