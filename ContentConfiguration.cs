@@ -24,7 +24,7 @@ namespace InterfaceBuilder
             return entry;
         }
 
-        public static Label Size(this Label label, int size)
+        public static Label FontSize(this Label label, int size)
         {
             label.FontSize = size;
             return label;
@@ -49,6 +49,21 @@ namespace InterfaceBuilder
             return label;
         }
 
+        public static Label Right(this Label label)
+        {
+            label.HorizontalTextAlignment = TextAlignment.End;
+            label.VerticalTextAlignment = TextAlignment.End;
+            return label;
+        }
+
+        public static Label Left(this Label label)
+        {
+            label.HorizontalTextAlignment = TextAlignment.Start;
+            label.VerticalTextAlignment = TextAlignment.Start;
+            return label;
+        }
+
+
         public static FlexLayout AlignFromStart(this FlexLayout flex)
         {
             flex.AlignItems = FlexAlignItems.Start;
@@ -64,6 +79,12 @@ namespace InterfaceBuilder
         public static FlexLayout StrechChildren(this FlexLayout flex)
         {
             flex.AlignItems = FlexAlignItems.Stretch;
+            return flex;
+        }
+
+        public static FlexLayout Wrap(this FlexLayout flex)
+        {
+            flex.Wrap = FlexWrap.Wrap;
             return flex;
         }
 

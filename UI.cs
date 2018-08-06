@@ -10,6 +10,8 @@ namespace InterfaceBuilder
     {
         public Theme Theme { get; private set; }
 
+        public Xamarin.Forms.INavigation Nav { get; set; }
+
         public UI(Theme theme = null) => this.Theme = theme ?? new Theme();
 
         public Label Label(string text = "")

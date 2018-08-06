@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace InterfaceBuilder
 {
-    public static class BindableObjectExtensions
+    public static class Bindings
     {
         public static T BindTo<T>(this T target, BindableObject source,
                                   BindableProperty sourceProperty, BindableProperty targetProperty,
