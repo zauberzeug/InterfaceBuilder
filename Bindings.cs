@@ -11,7 +11,7 @@ namespace InterfaceBuilder
             where T : BindableObject
         {
             if (target.BindingContext != null && target.BindingContext != source)
-                Console.WriteLine("Incompatible binding source!(was {0}, will be {1})", target.BindingContext, source);
+                Console.WriteLine($"Incompatible binding source!(from source {source} to target {target.BindingContext})");
 
             target.BindingContext = source;
             target.SetBinding(targetProperty, sourceProperty.PropertyName, mode, converter, stringFormat);

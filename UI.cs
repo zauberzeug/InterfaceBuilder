@@ -72,15 +72,16 @@ namespace InterfaceBuilder
             };
         }
 
-        public Frame Frame(View content)
+        public ContentView Frame(View content)
         {
-            return new Frame {
-                //BorderColor = Theme.KeyColors.Text,
+            // NOTE Frame has currently issues with events (see https://github.com/xamarin/Xamarin.Forms/issues/3548) 
+            return new ContentView {
                 BackgroundColor = Theme.KeyColors.Background,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                HasShadow = false,
-                Content = content,
-                CornerRadius = 0,
+                Content = content
+                //BorderColor = Theme.KeyColors.Text,
+                //HasShadow = false,
+                //CornerRadius = 0,
             }.Padding(5);
         }
 

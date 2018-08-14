@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using System.Linq;
-using TouchTracking.Forms;
+using XFormsTouch;
 
 namespace InterfaceBuilder
 {
@@ -32,12 +32,11 @@ namespace InterfaceBuilder
 
         public static T OnTap<T>(this T view, Func<Task> onPressed, Func<Task> onReleased) where T : View
         {
-            // https://github.com/OndrejKunc/SkiaScene/ provides TouchTracking.Forms nuget package
-            var touchEffect = new TouchEffect { Capture = true };
+            var touchEffect = new TouchEffect();
             touchEffect.TouchAction += (s, e) => {
-                if (e.Type == TouchTracking.TouchActionType.Pressed)
+                if (e.Type == TouchActionType.Pressed)
                     onPressed();
-                if (e.Type == TouchTracking.TouchActionType.Released)
+                if (e.Type == TouchActionType.Released)
                     onReleased();
             };
             view.Effects.Add(touchEffect);
