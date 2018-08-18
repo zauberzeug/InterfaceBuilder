@@ -158,6 +158,12 @@ namespace InterfaceBuilder
             return view;
         }
 
+        public static T Automation<T>(this T view, string id) where T : View
+        {
+            view.AutomationId = id;
+            return view;
+        }
+
         public static StackLayout Space(this StackLayout layout, int spacing)
         {
             layout.Spacing = spacing;

@@ -20,11 +20,13 @@ namespace InterfaceBuilder
             view.GestureRecognizers.Add(new TapGestureRecognizer() {
                 Command = new Command(async () => {
                     view.Opacity = 0.5;
+                    view.IsEnabled = false;
                     var gestureRecognizers = view.GestureRecognizers.ToList();
                     view.GestureRecognizers.Clear(); // NOTE: disable other gestures while we execute this action
                     await func.Invoke();
                     gestureRecognizers.ForEach(g => view.GestureRecognizers.Add(g));
                     view.Opacity = 1;
+                    view.IsEnabled = true;
                 })
             });
             return view;
