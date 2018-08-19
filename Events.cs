@@ -49,13 +49,6 @@ namespace InterfaceBuilder
             };
             view.Effects.Add(touchEffect);
 
-            // HACK Android does not sent touch events up its view hierarchy and would need an
-            // override of OnInterceptTouchEvent(), as describted in https://developer.android.com/training/gestures/viewgroup
-            // If Xamarin would provide an event for the InterceptTouchEvent, the XFormsTouch NuGet
-            // could easily implement the solution...
-            if (Environment.OSVersion.Platform == PlatformID.Unix)
-                (view as Layout<View>).Children.ForEach(v => v.OnTap(onPressed, onReleased));
-
             return view;
         }
 
