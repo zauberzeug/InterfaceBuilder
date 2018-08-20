@@ -158,6 +158,13 @@ namespace InterfaceBuilder
             return view;
         }
 
+        public static T Width<T>(this T view, double size) where T : View
+        {
+            view.WidthRequest = size;
+            return view;
+        }
+
+
         public static T Automation<T>(this T view, string id) where T : View
         {
             view.AutomationId = id;
