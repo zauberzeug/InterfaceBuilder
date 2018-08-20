@@ -85,6 +85,13 @@ namespace InterfaceBuilder
             }.Padding(5);
         }
 
+        public ContentView Scrollable(View content)
+        {
+            return new ContentView {
+                Content = content
+            };
+        }
+
         public FlexLayout Flex()
         {
             return new FlexLayout() {
