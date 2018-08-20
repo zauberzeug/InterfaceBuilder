@@ -12,6 +12,12 @@ namespace InterfaceBuilder
             return layout;
         }
 
+        public static T Remove<T>(this T layout, params View[] views) where T : Layout<View>
+        {
+            views.ForEach(v => layout.Children.Remove(v));
+            return layout;
+        }
+
         public static Label Text(this Label label, string text)
         {
             label.Text = text;
