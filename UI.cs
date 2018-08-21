@@ -18,7 +18,9 @@ namespace InterfaceBuilder
                 HorizontalTextAlignment = TextAlignment.Start,
                 TextColor = Theme.KeyColors.Text,
                 FontSize = Theme.Sizes.NormalFont,
-                Margin = new Thickness(Theme.Sizes.NormalFont, Theme.Sizes.NormalFont / 2.0),
+                HeightRequest = Theme.Sizes.NormalFont * 2,
+                VerticalTextAlignment = TextAlignment.Center,
+                Margin = new Thickness(Theme.Sizes.NormalFont, 0),
             }.Text(text);
         }
 
