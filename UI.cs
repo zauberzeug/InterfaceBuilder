@@ -122,7 +122,7 @@ namespace InterfaceBuilder
         {
             var navigation = new Xamarin.Forms.NavigationPage(Page(title, content));
             navigation.BarBackgroundColor = Theme.KeyColors.NavigationBarBackground;
-            navigation.BarTextColor = Theme.KeyColors.Background;
+            navigation.BarTextColor = Theme.KeyColors.NavigationBarText ?? Theme.KeyColors.Background;
             return navigation;
         }
 

@@ -26,6 +26,7 @@ namespace InterfaceBuilder
         public Color Text = Color.Black;
         public Color Background = Color.White;
         public Color NavigationBarBackground = Color.Gray;
+        public Color? NavigationBarText = null;
     }
 
     public class Colors
