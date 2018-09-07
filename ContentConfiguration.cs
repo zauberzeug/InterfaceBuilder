@@ -82,6 +82,18 @@ namespace InterfaceBuilder
             return flex;
         }
 
+        public static FlexLayout JustifyCenter(this FlexLayout flex)
+        {
+            flex.JustifyContent = FlexJustify.Center;
+            return flex;
+        }
+
+        public static FlexLayout JustifyFromEnd(this FlexLayout flex)
+        {
+            flex.JustifyContent = FlexJustify.End;
+            return flex;
+        }
+
         public static FlexLayout StrechChildren(this FlexLayout flex)
         {
             flex.AlignItems = FlexAlignItems.Stretch;
