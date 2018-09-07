@@ -69,6 +69,11 @@ namespace InterfaceBuilder
             return label;
         }
 
+        public static Frame Color(this Frame frame, Color color)
+        {
+            frame.BorderColor = color;
+            return frame;
+        }
 
         public static FlexLayout AlignFromStart(this FlexLayout flex)
         {
