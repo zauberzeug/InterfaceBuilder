@@ -81,12 +81,6 @@ namespace InterfaceBuilder
             return frame;
         }
 
-        public static Frame BackgroundColor(this Frame frame, Color color)
-        {
-            frame.BackgroundColor = color;
-            return frame;
-        }
-
         public static FlexLayout AlignFromStart(this FlexLayout flex)
         {
             flex.AlignItems = FlexAlignItems.Start;
