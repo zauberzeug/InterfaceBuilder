@@ -117,6 +117,11 @@ namespace InterfaceBuilder
             return page;
         }
 
+        public ContentPage ScrollPage(string title, View content)
+        {
+            return Page(title, Scrollable(content));
+        }
+
         public Xamarin.Forms.NavigationPage NavigationPage(string title, View content)
         {
             var navigation = new Xamarin.Forms.NavigationPage(Page(title, content));

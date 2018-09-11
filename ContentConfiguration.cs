@@ -199,6 +199,17 @@ namespace InterfaceBuilder
             return view;
         }
 
+        public static T SquareByWidth<T>(this T view) where T : View
+        {
+            view.SizeChanged += (s, e) => view.HeightRequest = view.Width;
+            return view;
+        }
+
+        public static T SquareByHeight<T>(this T view) where T : View
+        {
+            view.SizeChanged += (s, e) => view.WidthRequest = view.Height;
+            return view;
+        }
 
         public static T Automation<T>(this T view, string id) where T : View
         {
