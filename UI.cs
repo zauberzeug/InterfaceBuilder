@@ -125,7 +125,7 @@ namespace InterfaceBuilder
 
         public TabbedPage TabbedPage(string title, params Xamarin.Forms.Page[] pages)
         {
-            var page = new TabbedPage() {
+            var page = new TabbedPage {
                 Title = title,
             };
 
@@ -136,7 +136,12 @@ namespace InterfaceBuilder
 
         public Xamarin.Forms.NavigationPage NavigationPage(string title, View content)
         {
-            var navigation = new Xamarin.Forms.NavigationPage(Page(title, content));
+            return NavigationPage(Page(title, content));
+        }
+
+        public Xamarin.Forms.NavigationPage NavigationPage(Xamarin.Forms.Page page)
+        {
+            var navigation = new Xamarin.Forms.NavigationPage(page);
             navigation.BarBackgroundColor = Theme.KeyColors.NavigationBarBackground;
             navigation.BarTextColor = Theme.KeyColors.NavigationBarText ?? Theme.KeyColors.Background;
             return navigation;
