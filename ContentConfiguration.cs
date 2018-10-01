@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using System.Linq;
 
 namespace InterfaceBuilder
 {
@@ -237,10 +238,22 @@ namespace InterfaceBuilder
             return view;
         }
 
-        public static T Background<T>(this T page, Color color) where T : View
+        public static ContentPage OnAppearing(this ContentPage page, Action action)
         {
-            page.BackgroundColor = color;
+            page.Appearing += (s, e) => action();
             return page;
+        }
+
+        public static NavigationPage OnAppearing(this NavigationPage page, Action action)
+        {
+            page.Navigation.NavigationStack.First().Appearing += (s, e) => action();
+            return page;
+        }
+
+        public static T Background<T>(this T view, Color color) where T : View
+        {
+            view.BackgroundColor = color;
+            return view;
         }
 
         public static T Margin<T>(this T view, int horizontal, int vertical) where T : View

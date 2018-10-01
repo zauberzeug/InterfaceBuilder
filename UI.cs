@@ -3,6 +3,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using System.Runtime.InteropServices;
+using Xamarin.Forms.Internals;
 
 namespace InterfaceBuilder
 {
@@ -120,6 +121,17 @@ namespace InterfaceBuilder
         public ContentPage ScrollPage(string title, View content)
         {
             return Page(title, Scrollable(content));
+        }
+
+        public TabbedPage TabbedPage(string title, params Xamarin.Forms.Page[] pages)
+        {
+            var page = new TabbedPage() {
+                Title = title,
+            };
+
+            pages.ForEach(p => page.Children.Add(p));
+
+            return page;
         }
 
         public Xamarin.Forms.NavigationPage NavigationPage(string title, View content)
