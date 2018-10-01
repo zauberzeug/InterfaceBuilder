@@ -250,6 +250,12 @@ namespace InterfaceBuilder
             return page;
         }
 
+        public static TabbedPage OnAppearing(this TabbedPage page, Action action)
+        {
+            page.Children.First().Appearing += (s, e) => action();
+            return page;
+        }
+
         public static T Background<T>(this T view, Color color) where T : View
         {
             view.BackgroundColor = color;
