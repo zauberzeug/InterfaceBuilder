@@ -238,15 +238,17 @@ namespace InterfaceBuilder
             return view;
         }
 
-        public static ContentPage OnAppearing(this ContentPage page, Action action)
+        public static ContentPage OnAppearing(this ContentPage page, params Action[] actions)
         {
-            page.Appearing += (s, e) => action();
+            foreach (var action in actions)
+                page.Appearing += (s, e) => action();
             return page;
         }
 
-        public static NavigationPage OnAppearing(this NavigationPage page, Action action)
+        public static NavigationPage OnAppearing(this NavigationPage page, params Action[] actions)
         {
-            page.Navigation.NavigationStack.First().Appearing += (s, e) => action();
+            foreach (var action in actions)
+                page.Navigation.NavigationStack.First().Appearing += (s, e) => action();
             return page;
         }
 
