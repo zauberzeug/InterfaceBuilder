@@ -287,5 +287,11 @@ namespace InterfaceBuilder
             layout.Padding = new Thickness(horizontal, vertical);
             return layout;
         }
+
+        public static Slider WithValue(this Slider slider, double value)
+        {
+            slider.Value = value;
+            return slider;
+        }
     }
 }

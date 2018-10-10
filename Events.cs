@@ -58,6 +58,18 @@ namespace InterfaceBuilder
             return entry;
         }
 
+        public static Slider OnChange(this Slider slider, Action action)
+        {
+            slider.ValueChanged += (s, e) => action();
+            return slider;
+        }
+
+        public static Slider OnChange(this Slider slider, EventHandler<ValueChangedEventArgs> action)
+        {
+            slider.ValueChanged += (s, e) => action(s, e);
+            return slider;
+        }
+
         public static Entry OnCompleted(this Entry entry, EventHandler action)
         {
             entry.Completed += action;

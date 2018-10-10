@@ -179,5 +179,13 @@ namespace InterfaceBuilder
                 FontSize = 25,
             };
         }
+
+        public Slider Slider(double min, double max)
+        {
+            return new Slider {
+                Minimum = min,
+                Maximum = max,
+            };
+        }
     }
 }
