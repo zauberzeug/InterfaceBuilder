@@ -106,7 +106,7 @@ namespace InterfaceBuilder
             return flex;
         }
 
-        public static FlexLayout StrechChildren(this FlexLayout flex)
+        public static FlexLayout StretchChildren(this FlexLayout flex)
         {
             flex.AlignItems = FlexAlignItems.Stretch;
             return flex;
@@ -145,7 +145,7 @@ namespace InterfaceBuilder
             return layout;
         }
 
-        public static FlexLayout Strech(this FlexLayout layout)
+        public static FlexLayout Stretch(this FlexLayout layout)
         {
             layout.AlignContent = FlexAlignContent.Stretch;
             return layout;
