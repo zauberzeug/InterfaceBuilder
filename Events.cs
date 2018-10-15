@@ -1,8 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Internals;
-using System.Linq;
 using XFormsTouch;
 
 namespace InterfaceBuilder
@@ -50,6 +49,12 @@ namespace InterfaceBuilder
             view.Effects.Add(touchEffect);
 
             return view;
+        }
+
+        public static Button OnPressed(this Button button, Action action)
+        {
+            button.Pressed += (s, e) => action();
+            return button;
         }
 
         public static Entry OnChange(this Entry entry, EventHandler<TextChangedEventArgs> action)

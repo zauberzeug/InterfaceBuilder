@@ -1,7 +1,6 @@
-﻿using InterfaceBuilder.Styling;
-using Xamarin.Forms;
-using Xamarin.Forms.Internals;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using Xamarin.Forms.Internals;
 
 namespace InterfaceBuilder
 {
@@ -15,23 +14,32 @@ namespace InterfaceBuilder
         {
             return new Label {
                 HorizontalTextAlignment = TextAlignment.Start,
-                TextColor = Theme.TextColor,
-                FontSize = Theme.NormalFontSize,
-                HeightRequest = Theme.NormalFontSize * 2,
+                TextColor = Theme.KeyColors.Text,
+                FontSize = Theme.Sizes.NormalFont,
+                HeightRequest = Theme.Sizes.NormalFont * 2,
                 VerticalTextAlignment = TextAlignment.Center,
-                Margin = new Thickness(Theme.NormalFontSize, 0),
+                Margin = new Thickness(Theme.Sizes.NormalFont, 0),
             }.Text(text);
+        }
+
+        public Button Button(string text = "")
+        {
+            return new Button {
+                FontSize = Theme.Sizes.NormalFont,
+                TextColor = Theme.KeyColors.Text,
+                Text = text,
+            };
         }
 
         public Xamarin.Forms.Entry Entry(string placeholder = "")
         {
             return new Xamarin.Forms.Entry {
-                TextColor = Theme.TextColor,
-                FontSize = Theme.NormalFontSize,
+                TextColor = Theme.KeyColors.Text,
+                FontSize = Theme.Sizes.NormalFont,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Placeholder = placeholder,
-                BackgroundColor = Theme.BackgroundColor,
-                Margin = new Thickness(Theme.NormalFontSize, Theme.NormalFontSize / 2.0),
+                BackgroundColor = Theme.KeyColors.Background,
+                Margin = new Thickness(Theme.Sizes.NormalFont, Theme.Sizes.NormalFont / 2.0),
             };
         }
 
@@ -69,17 +77,17 @@ namespace InterfaceBuilder
                 BackgroundColor = Color.Transparent,
                 WidthRequest = size,
                 HeightRequest = size,
-                Margin = new Thickness(Theme.NormalFontSize, Theme.NormalFontSize / 2.0),
+                Margin = new Thickness(Theme.Sizes.NormalFont, Theme.Sizes.NormalFont / 2.0),
             };
         }
 
         public Frame Frame(View content)
         {
             return new Frame {
-                BackgroundColor = Theme.BackgroundColor,
+                BackgroundColor = Theme.KeyColors.Background,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Content = content,
-                BorderColor = Theme.TextColor,
+                BorderColor = Theme.KeyColors.Text,
                 HasShadow = false,
                 CornerRadius = 0
             }.Padding(5);
@@ -107,7 +115,7 @@ namespace InterfaceBuilder
             var page = new ContentPage {
                 Title = title,
                 Content = content,
-                BackgroundColor = Theme.BackgroundColor,
+                BackgroundColor = Theme.KeyColors.Background,
             };
 
             page.On<Xamarin.Forms.PlatformConfiguration.iOS>().SetLargeTitleDisplay(LargeTitleDisplayMode.Never);
@@ -140,8 +148,8 @@ namespace InterfaceBuilder
         public Xamarin.Forms.NavigationPage NavigationPage(Xamarin.Forms.Page page)
         {
             var navigation = new Xamarin.Forms.NavigationPage(page);
-            navigation.BarBackgroundColor = Theme.NavigationBarBackgroundColor;
-            navigation.BarTextColor = Theme.NavigationBarTextColor ?? Theme.BackgroundColor;
+            navigation.BarBackgroundColor = Theme.KeyColors.NavigationBarBackground;
+            navigation.BarTextColor = Theme.KeyColors.NavigationBarText ?? Theme.KeyColors.Background;
             return navigation;
         }
 
@@ -172,7 +180,7 @@ namespace InterfaceBuilder
                 VerticalTextAlignment = TextAlignment.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
                 MinimumWidthRequest = 1e6, // https://stackoverflow.com/questions/41861020/
-                TextColor = Theme.TextColor,
+                TextColor = Theme.KeyColors.Text,
                 FontFamily = fontFamily,
                 FontSize = 25,
             };
@@ -181,11 +189,11 @@ namespace InterfaceBuilder
         public Slider Slider(double min, double max)
         {
             return new Slider {
+                Maximum = max, // Set max before min to avoid crash
                 Minimum = min,
-                Maximum = max,
-                ThumbColor = Colors.Yellow,
-                MinimumTrackColor = Colors.Yellow,
-                MaximumTrackColor = Colors.DarkGray
+                ThumbColor = Theme.Colors.Yellow,
+                MinimumTrackColor = Theme.Colors.Yellow,
+                MaximumTrackColor = Theme.Colors.DarkGray
             };
         }
     }
