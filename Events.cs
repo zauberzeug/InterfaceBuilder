@@ -53,7 +53,7 @@ namespace InterfaceBuilder
 
         public static Button OnPressed(this Button button, Action action)
         {
-            button.Pressed += (s, e) => action();
+            button.Command = new Command(action);
             return button;
         }
 
