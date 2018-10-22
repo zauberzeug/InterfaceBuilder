@@ -191,9 +191,6 @@ namespace InterfaceBuilder
             return new Slider {
                 Maximum = max, // Set max before min to avoid crash
                 Minimum = min,
-                ThumbColor = Theme.Colors.Yellow,
-                MinimumTrackColor = Theme.Colors.Yellow,
-                MaximumTrackColor = Theme.Colors.DarkGray
             };
         }
     }

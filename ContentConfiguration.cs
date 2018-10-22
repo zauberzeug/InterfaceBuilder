@@ -25,6 +25,12 @@ namespace InterfaceBuilder
             return layout;
         }
 
+        public static Button Color(this Button button, Color color)
+        {
+            button.BackgroundColor = color;
+            return button;
+        }
+
         public static Label Text(this Label label, string text)
         {
             label.Text = text;
@@ -80,6 +86,24 @@ namespace InterfaceBuilder
         {
             frame.BorderColor = color;
             return frame;
+        }
+
+        public static Slider MinimumTrackColor(this Slider slider, Color color)
+        {
+            slider.MinimumTrackColor = color;
+            return slider;
+        }
+
+        public static Slider MaximumTrackColor(this Slider slider, Color color)
+        {
+            slider.MaximumTrackColor = color;
+            return slider;
+        }
+
+        public static Slider ThumbColor(this Slider slider, Color color)
+        {
+            slider.ThumbColor = color;
+            return slider;
         }
 
         public static FlexLayout AlignFromStart(this FlexLayout flex)
