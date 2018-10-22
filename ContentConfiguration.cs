@@ -243,6 +243,12 @@ namespace InterfaceBuilder
             return layout;
         }
 
+        public static StackLayout Spacing(this StackLayout layout, int spacing)
+        {
+            layout.Spacing = spacing;
+            return layout;
+        }
+
         public static T With<T>(this T layout, params View[] views) where T : Layout<View>
         {
             layout.Add(views);
