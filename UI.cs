@@ -93,9 +93,9 @@ namespace InterfaceBuilder
             }.Padding(5);
         }
 
-        public ContentView Scrollable(View content)
+        public Xamarin.Forms.ScrollView Scrollable(View content)
         {
-            return new ContentView {
+            return new Xamarin.Forms.ScrollView {
                 Content = content
             };
         }
