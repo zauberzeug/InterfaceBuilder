@@ -19,6 +19,7 @@ namespace InterfaceBuilder
     public class Sizes
     {
         public int NormalFont = 18;
+        public int LargeFont = 30;
     }
 
     public class KeyColors
