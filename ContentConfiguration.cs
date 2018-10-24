@@ -181,16 +181,38 @@ namespace InterfaceBuilder
             return layout;
         }
 
+        public static T CenterHorizontal<T>(this T view) where T : View
+        {
+            view.HorizontalOptions = LayoutOptions.CenterAndExpand;
+            return view;
+        }
+
+        public static T CenterVertical<T>(this T view) where T : View
+        {
+            view.VerticalOptions = LayoutOptions.CenterAndExpand;
+            return view;
+        }
+
+        public static T Center<T>(this T view) where T : View
+        {
+            return view.CenterHorizontal().CenterVertical();
+        }
+
         public static T FillHorizontal<T>(this T view) where T : View
         {
             view.HorizontalOptions = LayoutOptions.FillAndExpand;
             return view;
         }
 
+        public static T FillVertical<T>(this T view) where T : View
+        {
+            view.VerticalOptions = LayoutOptions.FillAndExpand;
+            return view;
+        }
+
         public static T Fill<T>(this T view) where T : View
         {
-            view.HorizontalOptions = LayoutOptions.Fill;
-            return view;
+            return view.FillHorizontal().FillVertical();
         }
 
         public static T Grow<T>(this T view) where T : View
