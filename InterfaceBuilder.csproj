@@ -15,6 +15,6 @@
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.1" />
     <PackageReference Include="Xam.Plugins.Forms.Svg" Version="1.0.0.27" />
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
-    <PackageReference Include="XFormsTouch" Version="0.9.16" />
+    <PackageReference Include="XFormsTouch" Version="1.0.1" />
   </ItemGroup>
 </Project>
