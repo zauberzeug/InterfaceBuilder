@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
-using System.Linq;
 
 namespace InterfaceBuilder
 {
