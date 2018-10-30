@@ -71,14 +71,14 @@ namespace InterfaceBuilder
         public static Label Right(this Label label)
         {
             label.HorizontalTextAlignment = TextAlignment.End;
-            label.VerticalTextAlignment = TextAlignment.End;
+            label.VerticalTextAlignment = TextAlignment.Center;
             return label;
         }
 
         public static Label Left(this Label label)
         {
             label.HorizontalTextAlignment = TextAlignment.Start;
-            label.VerticalTextAlignment = TextAlignment.Start;
+            label.VerticalTextAlignment = TextAlignment.Center;
             return label;
         }
 
