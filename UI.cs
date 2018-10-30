@@ -45,7 +45,7 @@ namespace InterfaceBuilder
 
         public Label Headline(string text = "")
         {
-            return Label(text).Bold();
+            return Label(text).Bold().FontSize(Theme.Sizes.HeadlineFont);
         }
 
         public StackLayout Action(string text = "", string icon = null)
