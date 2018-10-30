@@ -64,6 +64,11 @@ namespace InterfaceBuilder
             };
         }
 
+        public ActivityIndicator ActivityIndicator(bool isVisible)
+        {
+            return new ActivityIndicator { IsRunning = true, IsVisible = isVisible, Margin = 10 };
+        }
+
         public BoxView Box()
         {
             return new BoxView {
