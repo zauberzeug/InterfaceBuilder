@@ -316,6 +316,18 @@ namespace InterfaceBuilder
             return view;
         }
 
+        public static T Invisible<T>(this T view) where T : View
+        {
+            view.IsVisible = false;
+            return view;
+        }
+
+        public static T Visible<T>(this T view) where T : View
+        {
+            view.IsVisible = true;
+            return view;
+        }
+
         public static T Margin<T>(this T view, int horizontal, int vertical) where T : View
         {
             view.Margin = new Thickness(horizontal, vertical);
