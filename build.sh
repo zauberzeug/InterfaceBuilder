@@ -31,4 +31,4 @@ $NUGET restore InterfaceBuilder.sln || exit 1
 sed -i '' "s/\(<PackageVersion>\).*\(<\/PackageVersion>\)/\1$VERSION\2/" InterfaceBuilder.NuGet/InterfaceBuilder.NuGet.nuproj
 msbuild /p:Configuration=Release InterfaceBuilder.sln || exit 1
 
-publishNuGet XFormsTouch.NuGet/bin/Release/XFormsTouch.*.nupkg
+publishNuGet InterfaceBuilder.NuGet/bin/Release/InterfaceBuilder.*.nupkg
