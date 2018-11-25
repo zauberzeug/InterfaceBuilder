@@ -136,6 +136,12 @@ namespace InterfaceBuilder
             return flex;
         }
 
+        public static FlexLayout SpaceEvenly(this FlexLayout flex)
+        {
+            flex.JustifyContent = FlexJustify.SpaceEvenly;
+            return flex;
+        }
+
         public static FlexLayout StretchChildren(this FlexLayout flex)
         {
             flex.AlignItems = FlexAlignItems.Stretch;
