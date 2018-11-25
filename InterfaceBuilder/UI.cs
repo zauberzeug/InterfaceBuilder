@@ -12,7 +12,8 @@ namespace InterfaceBuilder
 
         public Label Label(string text = "")
         {
-            return new Label {
+            return new Label
+            {
                 HorizontalTextAlignment = TextAlignment.Start,
                 TextColor = Theme.KeyColors.Text,
                 FontSize = Theme.Sizes.NormalFont,
@@ -24,7 +25,8 @@ namespace InterfaceBuilder
 
         public Button Button(string text = "")
         {
-            return new Button {
+            return new Button
+            {
                 FontSize = Theme.Sizes.NormalFont,
                 TextColor = Theme.KeyColors.Text,
                 Text = text,
@@ -33,7 +35,8 @@ namespace InterfaceBuilder
 
         public Xamarin.Forms.Entry Entry(string placeholder = "")
         {
-            return new Xamarin.Forms.Entry {
+            return new Xamarin.Forms.Entry
+            {
                 TextColor = Theme.KeyColors.Text,
                 FontSize = Theme.Sizes.NormalFont,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -58,7 +61,8 @@ namespace InterfaceBuilder
 
         public StackLayout Stack()
         {
-            return new StackLayout {
+            return new StackLayout
+            {
                 BackgroundColor = Color.Transparent,
                 Spacing = 0,
             };
@@ -71,14 +75,16 @@ namespace InterfaceBuilder
 
         public BoxView Box()
         {
-            return new BoxView {
+            return new BoxView
+            {
                 BackgroundColor = Color.Transparent,
             };
         }
 
         public BoxView Box(int size)
         {
-            return new BoxView {
+            return new BoxView
+            {
                 BackgroundColor = Color.Transparent,
                 WidthRequest = size,
                 HeightRequest = size,
@@ -88,7 +94,8 @@ namespace InterfaceBuilder
 
         public Frame Frame(View content)
         {
-            return new Frame {
+            return new Frame
+            {
                 BackgroundColor = Theme.KeyColors.Background,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Content = content,
@@ -100,14 +107,16 @@ namespace InterfaceBuilder
 
         public Xamarin.Forms.ScrollView Scrollable(View content)
         {
-            return new Xamarin.Forms.ScrollView {
+            return new Xamarin.Forms.ScrollView
+            {
                 Content = content
             };
         }
 
         public FlexLayout Flex()
         {
-            return new FlexLayout() {
+            return new FlexLayout()
+            {
                 AlignItems = FlexAlignItems.Center,
                 JustifyContent = FlexJustify.SpaceBetween,
                 AlignContent = FlexAlignContent.SpaceEvenly,
@@ -115,9 +124,19 @@ namespace InterfaceBuilder
             };
         }
 
+        public MasterDetailPage MasterDetailPage(ContentPage menu, Xamarin.Forms.NavigationPage initialContent)
+        {
+            return new MasterDetailPage
+            {
+                Master = menu,
+                Detail = initialContent
+            };
+        }
+
         public ContentPage Page(string title, View content)
         {
-            var page = new ContentPage {
+            var page = new ContentPage
+            {
                 Title = title,
                 Content = content,
                 BackgroundColor = Theme.KeyColors.Background,
@@ -136,7 +155,8 @@ namespace InterfaceBuilder
 
         public TabbedPage TabbedPage(string title, params Xamarin.Forms.Page[] pages)
         {
-            var page = new TabbedPage {
+            var page = new TabbedPage
+            {
                 Title = title,
             };
 
@@ -160,14 +180,16 @@ namespace InterfaceBuilder
 
         public BoxView HorizontalFill()
         {
-            return new BoxView() {
+            return new BoxView()
+            {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
             };
         }
 
         public BoxView VerticalFill()
         {
-            return new BoxView() {
+            return new BoxView()
+            {
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
         }
@@ -180,7 +202,8 @@ namespace InterfaceBuilder
             else if (Device.RuntimePlatform == Device.iOS)
                 fontFamily = "Elusive-Icons";
 
-            return new Label {
+            return new Label
+            {
                 Text = icon,
                 VerticalTextAlignment = TextAlignment.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
@@ -193,7 +216,8 @@ namespace InterfaceBuilder
 
         public Slider Slider(double min, double max)
         {
-            return new Slider {
+            return new Slider
+            {
                 Maximum = max, // Set max before min to avoid crash
                 Minimum = min,
             };
