@@ -156,6 +156,11 @@
       <Name>InterfaceBuilder</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Elusive-Icons.ttf">
+      <LogicalName>Elusive-Icons.ttf</LogicalName>
+    </BundleResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\Demo\Demo.projitems" Label="Shared" />
 </Project>
