@@ -12,23 +12,22 @@ namespace InterfaceBuilder
         {
             KeyColors.Background = Colors.White;
             KeyColors.Text = Colors.Black;
-            KeyColors.NavigationBarBackground = Colors.Gray;
+            KeyColors.SecondaryColor = Colors.Gray;
         }
     }
 
     public class Sizes
     {
-        public int NormalFont = 18;
-        public int HeadlineFont = 22;
-        public int LargeFont = 30;
+        public int NormalFont = 15;
+        public int HeadlineFont = 18;
     }
 
     public class KeyColors
     {
         public Color Text = Color.Black;
         public Color Background = Color.White;
-        public Color NavigationBarBackground = Color.Gray;
-        public Color? NavigationBarText = null;
+        public Color SecondaryColor = Color.Black;
+        public Color TintColor = Color.White;
     }
 
     public class Colors
@@ -38,6 +37,7 @@ namespace InterfaceBuilder
         public Color DarkGray = Color.FromHex("3A3E42");
         public Color Gray = Color.FromHex("CCCCCC");
         public Color White = Color.White;
+        public Color Yellow = Color.FromHex("FFDD00");
         public Color Black = Color.FromHex("222");
     }
 }

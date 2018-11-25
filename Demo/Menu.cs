@@ -20,7 +20,7 @@ namespace Demo
             this.masterDetail = masterDetail;
 
             Page = ui.Page("Menu", ui.Flex().AsColumn().JustifyFromStart().AlignFromStart().With(
-                ui.Label("InterfaceBuilder Demos"),
+                ui.Headline("InterfaceBuilder Demos"),
                 ui.Box().Height(30),
                 ui.Stack().With(
                     modules.Select(m => CreateMenuItem(m)).ToArray()

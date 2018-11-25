@@ -49,6 +49,12 @@ namespace InterfaceBuilder
             return label;
         }
 
+        public static Label Font(this Label label, string family)
+        {
+            label.FontFamily = family;
+            return label;
+        }
+
         public static Label Color(this Label label, Color color)
         {
             label.TextColor = color;
