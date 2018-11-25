@@ -1,6 +1,6 @@
 # InterfaceBuilder
 
-InterfaceBuilder is a handy wrapper around Xamrin.Forms to simplify writing UI definitions directly in C# (no XAML).
+InterfaceBuilder is a handy wrapper around Xamrin.Forms to simplify the writing of user interface code directly in C# (no XAML).
 
 It's heavly relying on the builder pattern. So you can write:
 
