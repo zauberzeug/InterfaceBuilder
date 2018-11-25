@@ -12,7 +12,7 @@ namespace InterfaceBuilder
         {
             KeyColors.Background = Colors.White;
             KeyColors.Text = Colors.Black;
-            KeyColors.SecondaryColor = Colors.Gray;
+            KeyColors.SecondaryColor = Colors.DarkGray;
         }
     }
 

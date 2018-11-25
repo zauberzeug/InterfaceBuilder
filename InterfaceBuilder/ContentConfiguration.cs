@@ -94,6 +94,12 @@ namespace InterfaceBuilder
             return frame;
         }
 
+        public static Frame NoBorder(this Frame frame)
+        {
+            frame.BorderColor = Xamarin.Forms.Color.Transparent;
+            return frame;
+        }
+
         public static Slider MinimumTrackColor(this Slider slider, Color color)
         {
             slider.MinimumTrackColor = color;
