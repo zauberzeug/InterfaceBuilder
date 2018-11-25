@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.props" Condition="Exists('$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2FA4A450-35ED-4340-B6DB-777BD74212B3}</ProjectGuid>
+    <Description>InterfaceBuilder is an hepful api to write Xamarin.Forms user interfaces directly in sourcecode. It's heavly relying on the builder pattern. So you can write:
+
+var ui = new UI();
+MainPage = ui.Page("MainPage", ui.Stack().With(
+  ui.Label("A"), 
+  ui.Label("B"), 
+  ui.Label("C"))
+);
+</Description>
+    <PackageId>Xamarin.Forms.InterfaceBuilder</PackageId>
+    <PackageVersion>0.1</PackageVersion>
+    <Authors>Perpetual Mobile GmbH</Authors>
+    <DevelopmentDependency>false</DevelopmentDependency>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>InterfaceBuilder.NuGet</RootNamespace>
+    <UsePartialTypes>false</UsePartialTypes>
+    <AssemblyName>InterfaceBuilder.NuGet</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <Copyright>2018 Perpetual Mobile GmbH</Copyright>
+    <PackageProjectUrl>https://github.com/perpetual-mobile/InterfaceBuilder</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/perpetual-mobile/InterfaceBuilder/LICENSE</PackageLicenseUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <OutputPath>bin\Debug</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="readme.txt">
+      <IncludeInPackage>true</IncludeInPackage>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NuGet.Build.Packaging">
+      <Version>0.2.2</Version>
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InterfaceBuilder\InterfaceBuilder.csproj">
+      <Project>{5EFFC34A-50EC-48D2-86AB-BFC4C42E2283}</Project>
+      <Name>InterfaceBuilder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <Import Project="$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.targets" Condition="Exists('$(NuGetAuthoringPath)\NuGet.Packaging.Authoring.targets')" />
+</Project>
