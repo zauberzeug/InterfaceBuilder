@@ -3,6 +3,7 @@ using InterfaceBuilder;
 using System.Linq;
 using Xamarin.Forms;
 using System.Xml;
+using System.Threading.Tasks;
 
 namespace Demo
 {
@@ -43,13 +44,15 @@ namespace Demo
 
                 ui.Headline("Tapable Views"),
                 ui.Flex().Margin(20).With(
-                    ui.Frame(ui.Label("Show Alert").Color(Color.GhostWhite)).NoBorder().Background(Color.DarkGray).
-                        OnTap(() => Page.DisplayAlert("Alert", "A standard alert from Xamarin.Forms", "OK")),
-                    ui.Label("Write Message").OnTap(() => Write("You can release now"), () => Write("press and hold"))
+                    ui.Label("Show Alert").OnTap(() => Page.DisplayAlert("Alert", "Via Xamarin.Forms", "OK")),
+                    ui.Frame(
+                        ui.Label("Write Message").Color(Color.GhostWhite)
+                    ).NoBorder().Background(Color.DarkGray).OnTap(() => Write("You can release now"), () => Write("press and hold")),
+                    ui.Label("2s delay").OnTap(async () => await Task.Delay(TimeSpan.FromSeconds(2)))
                 ),
 
                 ui.Headline("Messages"),
-                messageLabel = ui.Label("the last tapable view changes this label"),
+                messageLabel = ui.Label("this text changes when tapping the view above"),
                 ui.Entry("modify toolbar item").BindTo(toolbarItem, Entry.TextProperty, MenuItem.TextProperty)
             ));
 
@@ -59,7 +62,7 @@ namespace Demo
         View CreateBox(int number)
         {
             var text = number.ToString();
-            return ui.Frame(ui.Label(text).FontSize(20).Centered()).SquareByWidth().Width(70).Margin(5);
+            return ui.Frame(ui.Label(text).FontSize(20).Centered()).SquareByWidth().Width(50).Margin(5);
         }
 
         void Write(string msg) => messageLabel.Text(msg);
