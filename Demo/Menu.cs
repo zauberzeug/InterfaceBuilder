@@ -33,8 +33,7 @@ namespace Demo
         View CreateMenuItem(Module modul)
         {
             return ui.Action(GetTitle(modul.Page), modul.Icon).Margin(10).
-                     OnTap(async () =>
-                     {
+                     OnTap(async () => {
                          masterDetail.Detail = modul.Page;
                          masterDetail.IsPresented = false;
                          await Task.Delay(TimeSpan.FromMilliseconds(500));

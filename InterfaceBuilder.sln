@@ -97,7 +97,6 @@ Global
 		$2.TabsToSpaces = True
 		$2.scope = text/x-csharp
 		$0.CSharpFormattingPolicy = $3
-		$3.NewLinesForBracesInMethods = False
 		$3.NewLinesForBracesInProperties = False
 		$3.NewLinesForBracesInAccessors = False
 		$3.NewLinesForBracesInAnonymousMethods = False

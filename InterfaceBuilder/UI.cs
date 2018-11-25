@@ -11,7 +11,8 @@ namespace InterfaceBuilder
 
         public UI(Theme theme = null) => this.Theme = theme ?? new Theme();
 
-        public Label Label(string text = "") {
+        public Label Label(string text = "")
+        {
             return new Label {
                 HorizontalTextAlignment = TextAlignment.Start,
                 TextColor = Theme.KeyColors.Text,
@@ -22,7 +23,8 @@ namespace InterfaceBuilder
             }.Text(text);
         }
 
-        public Button Button(string text = "") {
+        public Button Button(string text = "")
+        {
             return new Button {
                 FontSize = Theme.Sizes.NormalFont,
                 TextColor = Theme.KeyColors.Text,
@@ -30,7 +32,8 @@ namespace InterfaceBuilder
             };
         }
 
-        public Xamarin.Forms.Entry Entry(string placeholder = "") {
+        public Xamarin.Forms.Entry Entry(string placeholder = "")
+        {
             return new Xamarin.Forms.Entry {
                 TextColor = Theme.KeyColors.Text,
                 FontSize = Theme.Sizes.NormalFont,
@@ -41,35 +44,41 @@ namespace InterfaceBuilder
             };
         }
 
-        public Label Headline(string text = "") {
+        public Label Headline(string text = "")
+        {
             return Label(text).Bold().FontSize(Theme.Sizes.HeadlineFont);
         }
 
-        public StackLayout Action(string text = "", string icon = null) {
+        public StackLayout Action(string text = "", string icon = null)
+        {
             var stack = Stack().Horizontal().Padding(new Thickness(25, 0));
             if (icon != null)
                 stack.Children.Insert(0, Icon(icon));
             return stack.With(Label(text));
         }
 
-        public StackLayout Stack() {
+        public StackLayout Stack()
+        {
             return new StackLayout {
                 BackgroundColor = Color.Transparent,
                 Spacing = 0,
             };
         }
 
-        public ActivityIndicator ActivityIndicator() {
+        public ActivityIndicator ActivityIndicator()
+        {
             return new ActivityIndicator { IsRunning = true, IsVisible = true, Margin = 10 };
         }
 
-        public BoxView Box() {
+        public BoxView Box()
+        {
             return new BoxView {
                 BackgroundColor = Color.Transparent,
             };
         }
 
-        public BoxView Box(int size) {
+        public BoxView Box(int size)
+        {
             return new BoxView {
                 BackgroundColor = Color.Transparent,
                 WidthRequest = size,
@@ -78,7 +87,8 @@ namespace InterfaceBuilder
             };
         }
 
-        public Frame Frame(View content) {
+        public Frame Frame(View content)
+        {
             return new Frame {
                 BackgroundColor = Theme.KeyColors.Background,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -89,13 +99,15 @@ namespace InterfaceBuilder
             }.Padding(5);
         }
 
-        public Xamarin.Forms.ScrollView Scrollable(View content) {
+        public Xamarin.Forms.ScrollView Scrollable(View content)
+        {
             return new Xamarin.Forms.ScrollView {
                 Content = content
             };
         }
 
-        public FlexLayout Flex() {
+        public FlexLayout Flex()
+        {
             return new FlexLayout() {
                 AlignItems = FlexAlignItems.Center,
                 JustifyContent = FlexJustify.SpaceBetween,
@@ -104,14 +116,16 @@ namespace InterfaceBuilder
             };
         }
 
-        public MasterDetailPage MasterDetailPage(ContentPage menu, Xamarin.Forms.NavigationPage initialContent) {
+        public MasterDetailPage MasterDetailPage(ContentPage menu, Xamarin.Forms.NavigationPage initialContent)
+        {
             return new MasterDetailPage {
                 Master = menu,
                 Detail = initialContent
             };
         }
 
-        public ContentPage Page(string title, View content) {
+        public ContentPage Page(string title, View content)
+        {
             return new ContentPage {
                 Title = title,
                 Content = content,
@@ -119,11 +133,13 @@ namespace InterfaceBuilder
             }.WithSafeAreas();
         }
 
-        public ContentPage ScrollPage(string title, View content) {
+        public ContentPage ScrollPage(string title, View content)
+        {
             return Page(title, Scrollable(content));
         }
 
-        public TabbedPage TabbedPage(string title, params Xamarin.Forms.Page[] pages) {
+        public TabbedPage TabbedPage(string title, params Xamarin.Forms.Page[] pages)
+        {
             var page = new TopTabbedPage {
                 Title = title,
                 BarTextColor = Theme.KeyColors.Background,
@@ -136,30 +152,35 @@ namespace InterfaceBuilder
             return page.WithSafeAreas();
         }
 
-        public Xamarin.Forms.NavigationPage NavigationPage(string title, View content) {
+        public Xamarin.Forms.NavigationPage NavigationPage(string title, View content)
+        {
             return NavigationPage(Page(title, content)).WithSafeAreas();
         }
 
-        public Xamarin.Forms.NavigationPage NavigationPage(Xamarin.Forms.Page page) {
+        public Xamarin.Forms.NavigationPage NavigationPage(Xamarin.Forms.Page page)
+        {
             var navigation = new Xamarin.Forms.NavigationPage(page);
             navigation.BarBackgroundColor = Theme.KeyColors.SecondaryColor;
             navigation.BarTextColor = Theme.KeyColors.TintColor;
             return navigation.WithSafeAreas();
         }
 
-        public BoxView HorizontalFill() {
+        public BoxView HorizontalFill()
+        {
             return new BoxView() {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
             };
         }
 
-        public BoxView VerticalFill() {
+        public BoxView VerticalFill()
+        {
             return new BoxView() {
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
         }
 
-        public Label Icon(string icon) {
+        public Label Icon(string icon)
+        {
             var fontFamily = "";
             if (Device.RuntimePlatform == Device.Android)
                 fontFamily = "Elusive-Icons.ttf#Elusive-Icons Regular";
@@ -177,7 +198,8 @@ namespace InterfaceBuilder
             };
         }
 
-        public Xamarin.Forms.Slider Slider(double min, double max) {
+        public Xamarin.Forms.Slider Slider(double min, double max)
+        {
             return new Xamarin.Forms.Slider {
                 Maximum = max, // Set max before min to avoid crash
                 Minimum = min,
