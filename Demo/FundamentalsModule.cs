@@ -13,7 +13,7 @@ namespace Demo
         {
             this.ui = ui;
 
-            Page = ui.NavigationPage("Basic Demo", ui.Stack().Padding(5).With(
+            Page = ui.NavigationPage("Basic Demo", ui.Stack().With(
 
                 ui.Headline("Some items in a StackLayout"),
                 ui.Stack().With(
@@ -28,10 +28,13 @@ namespace Demo
                 ),
 
                 ui.Headline("Icons from www.elusiveicons.com"),
-                ui.Flex().Margin(10).With(
-                    new string[] { IconName.AddressBook, IconName.Bookmark, IconName.Bulb }.Select(ui.Icon).ToArray()
+                ui.Flex().Margin(20).With(
+                    new string[] {
+                        IconName.AddressBook, IconName.Bookmark, IconName.Bulb,
+                        IconName.Compass, IconName.Dashboard, IconName.Download
+                    }.Select(ui.Icon).ToArray()
                 ),
-                ui.Label("Note: you need to add the ttf font to your App projects to see them").FontSize(10)
+                ui.Label("Note: you need to add the Elusive-Icons.ttf font from the Demo to your App projects to activate them in your code").FontSize(10)
             ));
         }
 

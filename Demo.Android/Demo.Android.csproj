@@ -97,6 +97,11 @@
       <Name>InterfaceBuilder</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Elusive-Icons.ttf">
+      <LogicalName>Elusive-Icons.ttf</LogicalName>
+    </AndroidAsset>
+  </ItemGroup>
   <Import Project="..\Demo\Demo.projitems" Label="Shared" />
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

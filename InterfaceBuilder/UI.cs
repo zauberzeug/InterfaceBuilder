@@ -46,7 +46,8 @@ namespace InterfaceBuilder
 
         public Label Headline(string text = "")
         {
-            return Label(text).Bold().FontSize(Theme.Sizes.HeadlineFont);
+            return Label(text).Bold().FontSize(Theme.Sizes.HeadlineFont).
+                              Margin(new Thickness(Theme.Sizes.NormalFont, 2 * Theme.Sizes.NormalFont, Theme.Sizes.NormalFont, 0));
         }
 
         public StackLayout Action(string text = "", string icon = null)
@@ -185,7 +186,7 @@ namespace InterfaceBuilder
             if (Device.RuntimePlatform == Device.Android)
                 fontFamily = "Elusive-Icons.ttf#Elusive-Icons Regular";
             else if (Device.RuntimePlatform == Device.iOS)
-                fontFamily = "Elusive-Icons";
+                fontFamily = "elusiveicons";
 
             return new Label {
                 Text = icon,
