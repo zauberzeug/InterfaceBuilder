@@ -13,5 +13,14 @@ namespace InterfaceBuilder
 
             return page;
         }
+
+        public static T WithoutSafeAreas<T>(this T page) where T : Xamarin.Forms.Page
+        {
+            page.On<Xamarin.Forms.PlatformConfiguration.iOS>().SetLargeTitleDisplay(LargeTitleDisplayMode.Always);
+            page.On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(false);
+
+
+            return page;
+        }
     }
 }

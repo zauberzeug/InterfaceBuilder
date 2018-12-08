@@ -13,5 +13,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Menu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Module.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FundamentalsModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImageModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)loremipsum-graphic-license-free.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)loremipsum.jpg">
+      <LogicalName>loremipsum.jpg</LogicalName>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

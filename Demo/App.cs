@@ -12,7 +12,8 @@ namespace Demo
             var ui = new UI();
 
             var modules = new List<Module> {
-                new FundamentalsModule(ui)
+                new FundamentalsModule(ui),
+                new ImageModule(ui)
             };
 
             var masterDetail = new MasterDetailPage();

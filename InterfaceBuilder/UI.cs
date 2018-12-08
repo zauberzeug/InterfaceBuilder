@@ -32,6 +32,21 @@ namespace InterfaceBuilder
             };
         }
 
+
+        public Image Image(string resourcename = "")
+        {
+            var stackTrace = new System.Diagnostics.StackTrace();
+            var frame = stackTrace.GetFrames()[1];
+            var method = frame.GetMethod();
+            string methodName = method.Name;
+            var methodsClass = method.DeclaringType;
+
+            return new Image {
+                Source = ImageSource.FromResource(resourcename, methodsClass.Assembly),
+                Aspect = Aspect.AspectFit,
+            };
+        }
+
         public Xamarin.Forms.Entry Entry(string placeholder = "")
         {
             return new Xamarin.Forms.Entry {
