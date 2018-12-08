@@ -32,7 +32,6 @@ namespace InterfaceBuilder
             };
         }
 
-
         public Image Image(string resourcename = "")
         {
             var stackTrace = new System.Diagnostics.StackTrace();
