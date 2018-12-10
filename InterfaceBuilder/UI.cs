@@ -20,6 +20,7 @@ namespace InterfaceBuilder
                 HeightRequest = Theme.Sizes.NormalFont * 2,
                 VerticalTextAlignment = TextAlignment.Center,
                 Margin = new Thickness(Theme.Sizes.NormalFont, 0),
+                LineBreakMode = LineBreakMode.WordWrap,
             }.Text(text);
         }
 
@@ -32,7 +33,7 @@ namespace InterfaceBuilder
             };
         }
 
-        public Image Image(string resourcename = "")
+        public Image Image(string resourceId = "")
         {
             var stackTrace = new System.Diagnostics.StackTrace();
             var frame = stackTrace.GetFrames()[1];
@@ -41,7 +42,7 @@ namespace InterfaceBuilder
             var methodsClass = method.DeclaringType;
 
             return new Image {
-                Source = ImageSource.FromResource(resourcename, methodsClass.Assembly),
+                Source = ImageSource.FromResource(resourceId, methodsClass.Assembly),
                 Aspect = Aspect.AspectFit,
             };
         }
