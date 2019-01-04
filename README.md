@@ -2,7 +2,7 @@
 
 InterfaceBuilder is a handy wrapper around Xamrin.Forms to simplify the writing of user interface code directly in C# (no XAML).
 
-It's heavly relying on the builder pattern. So you can write:
+It's heavily relying on the builder pattern. So you can write:
 
 ```csharp
 var ui = new UI();

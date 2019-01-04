@@ -41,10 +41,12 @@ namespace InterfaceBuilder
             string methodName = method.Name;
             var methodsClass = method.DeclaringType;
 
-            return new Image {
+            var image = new Image {
                 Source = ImageSource.FromResource(resourceId, methodsClass.Assembly),
-                Aspect = Aspect.AspectFit,
+                Aspect = Aspect.AspectFill,
             };
+            image.Source.AutomationId = resourceId;
+            return image;
         }
 
         public Xamarin.Forms.Entry Entry(string placeholder = "")
