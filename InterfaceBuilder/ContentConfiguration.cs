@@ -43,6 +43,12 @@ namespace InterfaceBuilder
             return entry;
         }
 
+        public static Label LineBreakMode(this Label label, LineBreakMode mode)
+        {
+            label.LineBreakMode = mode;
+            return label;
+        }
+
         public static Label FontSize(this Label label, int size)
         {
             label.FontSize = size;
