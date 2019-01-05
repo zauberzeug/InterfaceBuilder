@@ -22,7 +22,7 @@ to EmbeddedRessource.
 
 Also provide a 'Ressource ID'
 which you can then reference 
-in UI.Image(string ressourceId)".Replace("\n", Environment.NewLine)).FontSize(18),
+in UI.Image(string ressourceId)").FontSize(18),
                         ui.Box().FillVertical(),
                         ui.Label("Designed by Starline / Freepik:"),
                         ui.Image("loremipsum.jpg")
