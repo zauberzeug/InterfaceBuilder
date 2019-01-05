@@ -57,6 +57,7 @@ namespace InterfaceBuilder
 <head>
      <style type='text/css'>
         body {
+            margin: 0; padding: 0;
             background-color: transparent;
             font-family: sans-serif;
             font-size: " + Theme.Sizes.NormalFont + @"px;
