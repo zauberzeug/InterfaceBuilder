@@ -29,12 +29,12 @@ namespace Demo
                 ),
 
                 ui.Headline("FlexLayout with Boxes"),
-                ui.Flex().Wrap().Margin(10, 0).JustifyFromStart().AlignFromStart().With(
+                ui.Flex().Wrap().SpaceEvenly().AlignFromStart().With(
                     new int[] { 1, 2, 3, 4, 5, 6 }.Select(CreateBox).ToArray()
                 ),
 
                 ui.Headline("Icons from www.elusiveicons.com"),
-                ui.Flex().Margin(20).With(
+                ui.Flex().Margin(5).With(
                     new string[] {
                         IconName.AddressBook, IconName.Bookmark, IconName.Bulb,
                         IconName.Compass, IconName.Dashboard, IconName.Download
@@ -54,7 +54,7 @@ namespace Demo
                 ui.Headline("Messages"),
                 messageLabel = ui.Label("this text changes when tapping the view above"),
                 ui.Entry("modify toolbar item").BindTo(toolbarItem, Entry.TextProperty, MenuItem.TextProperty)
-            ));
+            ).ColorizeEverything());
 
             Page.ToolbarItems.Add(toolbarItem);
         }
@@ -62,7 +62,7 @@ namespace Demo
         View CreateBox(int number)
         {
             var text = number.ToString();
-            return ui.Frame(ui.Label(text).FontSize(20).Centered()).SquareByWidth().Width(50).Margin(5);
+            return ui.Frame(ui.Label(text).FontSize(20).Centered()).SquareByWidth().Width(50);
         }
 
         void Write(string msg) => messageLabel.Text(msg);

@@ -20,6 +20,7 @@ namespace InterfaceBuilder
     {
         public int NormalFont = 15;
         public int HeadlineFont = 18;
+        public int PageMargin = 20;
     }
 
     public class KeyColors

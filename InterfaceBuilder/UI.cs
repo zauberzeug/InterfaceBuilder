@@ -20,7 +20,7 @@ namespace InterfaceBuilder
                 TextColor = Theme.KeyColors.Text,
                 FontSize = Theme.Sizes.NormalFont,
                 VerticalTextAlignment = TextAlignment.Center,
-                Margin = new Thickness(Theme.Sizes.NormalFont, Theme.Sizes.NormalFont / 2),
+                Margin = new Thickness(0, Theme.Sizes.NormalFont / 2),
                 LineBreakMode = LineBreakMode.WordWrap,
             }.Text(text);
         }
@@ -85,21 +85,21 @@ namespace InterfaceBuilder
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Placeholder = placeholder,
                 BackgroundColor = Theme.KeyColors.Background,
-                Margin = new Thickness(Theme.Sizes.NormalFont, Theme.Sizes.NormalFont / 2.0),
+                Margin = new Thickness(0, Theme.Sizes.NormalFont / 2.0),
             };
         }
 
         public Label Headline(string text = "")
         {
             return Label(text).Bold().FontSize(Theme.Sizes.HeadlineFont).
-                              Margin(new Thickness(Theme.Sizes.NormalFont, 2 * Theme.Sizes.NormalFont, Theme.Sizes.NormalFont, 0));
+                      Margin(new Thickness(0, 2 * Theme.Sizes.NormalFont, 0, Theme.Sizes.NormalFont));
         }
 
         public StackLayout Action(string text = "", string icon = null)
         {
             var stack = Stack().Horizontal().Padding(new Thickness(25, 0));
             if (icon != null)
-                stack.Children.Insert(0, Icon(icon));
+                stack.Children.Insert(0, Icon(icon).Margin(0, 0, Theme.Sizes.PageMargin, 0));
             return stack.With(Label(text));
         }
 
@@ -129,7 +129,7 @@ namespace InterfaceBuilder
                 BackgroundColor = Color.Transparent,
                 WidthRequest = size,
                 HeightRequest = size,
-                Margin = new Thickness(Theme.Sizes.NormalFont, Theme.Sizes.NormalFont / 2.0),
+                Margin = new Thickness(0, Theme.Sizes.NormalFont / 2.0),
             };
         }
 
@@ -176,7 +176,8 @@ namespace InterfaceBuilder
                 Title = title,
                 Content = content,
                 BackgroundColor = Theme.KeyColors.Background,
-            }.WithSafeAreas();
+                Padding = Theme.Sizes.PageMargin,
+            };
         }
 
         public ContentPage ScrollPage(string title, View content)

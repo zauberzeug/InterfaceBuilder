@@ -20,8 +20,7 @@ namespace Demo
             this.masterDetail = masterDetail;
 
             Page = ui.Page("Menu", ui.Stack().With(
-                ui.Headline("InterfaceBuilder Demos"),
-                ui.Box().Height(30),
+                ui.Headline("InterfaceBuilder Demos").Margin(0, 30),
                 ui.Stack().With(
                     modules.Select(m => CreateMenuItem(m)).ToArray()
                 )
@@ -32,7 +31,7 @@ namespace Demo
 
         View CreateMenuItem(Module modul)
         {
-            return ui.Action(GetTitle(modul.Page), modul.Icon).Margin(10).
+            return ui.Action(GetTitle(modul.Page), modul.Icon).Margin(0, 10).
                      OnTap(async () => {
                          masterDetail.Detail = modul.Page;
                          masterDetail.IsPresented = false;

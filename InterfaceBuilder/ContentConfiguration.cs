@@ -334,7 +334,7 @@ namespace InterfaceBuilder
             return page;
         }
 
-        public static T Background<T>(this T view, Color color) where T : View
+        public static T Background<T>(this T view, Color color) where T : VisualElement
         {
             view.BackgroundColor = color;
             return view;
@@ -358,6 +358,12 @@ namespace InterfaceBuilder
             return view;
         }
 
+        public static T Margin<T>(this T view, int left, int top, int right, int bottom) where T : View
+        {
+            view.Margin = new Thickness(left, top, right, bottom);
+            return view;
+        }
+
         public static T Margin<T>(this T view, Thickness thickness) where T : View
         {
             view.Margin = thickness;
@@ -370,9 +376,21 @@ namespace InterfaceBuilder
             return layout;
         }
 
+        public static T Padding<T>(this T layout, int padding) where T : Layout
+        {
+            layout.Padding = new Thickness(padding);
+            return layout;
+        }
+
         public static T Padding<T>(this T layout, int horizontal, int vertical) where T : Layout
         {
             layout.Padding = new Thickness(horizontal, vertical);
+            return layout;
+        }
+
+        public static T Padding<T>(this T layout, int left, int top, int right, int bottom) where T : Layout
+        {
+            layout.Margin = new Thickness(left, top, right, bottom);
             return layout;
         }
 
@@ -380,6 +398,12 @@ namespace InterfaceBuilder
         {
             slider.Value = value;
             return slider;
+        }
+
+        public static ContentPage Padding(this ContentPage layout, int padding)
+        {
+            layout.Padding = new Thickness(padding);
+            return layout;
         }
     }
 }
