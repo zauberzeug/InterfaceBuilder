@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Module.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FundamentalsModule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImageModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WebModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)loremipsum-graphic-license-free.txt" />
@@ -21,6 +22,9 @@
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)loremipsum.jpg">
       <LogicalName>loremipsum.jpg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)demo.html">
+      <LogicalName>demo.html</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

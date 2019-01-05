@@ -1,4 +1,6 @@
-﻿using Naxam.Controls.Forms;
+﻿using System.IO;
+using System.Reflection;
+using Naxam.Controls.Forms;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
@@ -34,18 +36,45 @@ namespace InterfaceBuilder
 
         public Image Image(string resourceId = "")
         {
-            var stackTrace = new System.Diagnostics.StackTrace();
-            var frame = stackTrace.GetFrames()[1];
-            var method = frame.GetMethod();
-            string methodName = method.Name;
-            var methodsClass = method.DeclaringType;
-
             var image = new Image {
-                Source = ImageSource.FromResource(resourceId, methodsClass.Assembly),
+                Source = ImageSource.FromResource(resourceId, FindCallingAssembly()),
                 Aspect = Aspect.AspectFill,
             };
             image.Source.AutomationId = resourceId;
             return image;
+        }
+
+        public WebView Html(string content)
+        {
+            var ressource = FindCallingAssembly().GetManifestResourceStream(content);
+
+            if (ressource != null)
+                content = new StreamReader(ressource).ReadToEnd();
+
+            if (!content.Contains("<head>"))
+                content = @"<html>
+<head>
+     <style type='text/css'>
+        body {
+            background-color: transparent;
+            font-family: sans-serif;
+            font-size: " + Theme.Sizes.NormalFont + @"px;
+        }
+    </style>
+</head>
+<body>" + content + "</body></html>";
+            return new WebView {
+                Source = new HtmlWebViewSource { Html = content },
+                BackgroundColor = Color.Transparent,
+                IsEnabled = false,
+            }.FillVertical();
+        }
+
+        public WebView Website(string url)
+        {
+            return new WebView {
+                Source = url
+            };
         }
 
         public Xamarin.Forms.Entry Entry(string placeholder = "")
@@ -221,6 +250,17 @@ namespace InterfaceBuilder
                 Maximum = max, // Set max before min to avoid crash
                 Minimum = min,
             };
+        }
+
+        static Assembly FindCallingAssembly()
+        {
+            var stackTrace = new System.Diagnostics.StackTrace();
+            var frame = stackTrace.GetFrames()[2]; // NOTE assuming that this helper method will be called from UI methods which get called from production code where the ressource is defined
+            var method = frame.GetMethod();
+            string methodName = method.Name;
+            var methodsClass = method.DeclaringType;
+            var assembly = methodsClass.Assembly;
+            return assembly;
         }
     }
 }

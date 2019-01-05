@@ -1,14 +1,19 @@
-﻿InterfaceBuilder is an hepful API to write Xamarin.Forms user interfaces directly in sourcecode. 
-It's heavly relying on the builder pattern. So you can write:
+﻿InterfaceBuilder is a handy wrapper around Xamrin.Forms to improve the writing 
+of user interface code directly in C# (no XAML).
+
+It's a combination of factory pattern and the builder pattern. So you can write:
+
 
 var ui = new UI();
 
-MainPage = ui.Page("MainPage", ui.Stack().With(
-  ui.Label("A"), 
-  ui.Label("B"), 
+MainPage = ui.Page("MainPage", ui.Stack().Vertical().With(
+  ui.Label("A"),
+  ui.Label("B"),
   ui.Label("C"))
 );
 
-This package is used in several projects at Perpetual Mobile, licensed under APACHE LICENSE and is hopefully
-usefull to you.
 
+This package is used in several projects at Perpetual Mobile, licensed under APACHE LICENSE and is hopefully
+useful to you.
+
+We have no proper documentation jet but provide some examples in the Demo project. Have a look at our GitHub site.

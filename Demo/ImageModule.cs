@@ -11,6 +11,7 @@ namespace Demo
         public ImageModule(UI ui) : base(ui)
         {
             this.ui = ui;
+            Icon = IconName.Picture;
 
             Page = ui.NavigationPage(
                 ui.ScrollPage("Images",
