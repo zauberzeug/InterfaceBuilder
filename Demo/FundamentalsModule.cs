@@ -15,7 +15,7 @@ namespace Demo
         public FundamentalsModule(UI ui) : base(ui)
         {
             this.ui = ui;
-            Icon = IconName.EyeOpen;
+            Icon = IconName.Glass;
 
             var toolbarItem = new ToolbarItem("Demo", null, () => { });
 

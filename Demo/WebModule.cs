@@ -11,7 +11,7 @@ namespace Demo
         public WebModule(UI ui) : base(ui)
         {
             this.ui = ui;
-            Icon = IconName.Website;
+            Icon = IconName.Globe;
 
             Page = ui.NavigationPage(UI.ScrollPage("Html & Web", ui.Stack().With(
 
@@ -24,8 +24,8 @@ namespace Demo
                     to your theme if none is provided.</p>"),
 
                 ui.Headline("Mixing with other Emelents"),
-                ui.Label("As you can see, UI.Html behaves as an normal Xamarin.Forms Element" +
-                    "It's not scrollable by itself and only takes the hight it requires for it's content." +
+                ui.Label("As you can see, UI.Html behaves similar to normal Xamarin.Forms Elements. " +
+                    "It's not scrollable by itself and only takes the hight it requires for it's content. " +
                     "All interaction in HTML is disabled by default to make it work seamlesly inside a scroll view.")
             )));
         }
