@@ -4,6 +4,7 @@ using Naxam.Controls.Forms;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using System.Linq;
 
 namespace InterfaceBuilder
 {
@@ -91,8 +92,17 @@ namespace InterfaceBuilder
 
         public Label Headline(string text = "")
         {
-            return Label(text).Bold().FontSize(Theme.Sizes.HeadlineFont).
-                      Margin(new Thickness(0, 2 * Theme.Sizes.NormalFont, 0, Theme.Sizes.NormalFont));
+            var headline = Label(text).Bold().FontSize(Theme.Sizes.HeadlineFont).
+                      Margin(0, 2 * Theme.Sizes.NormalFont, 0, Theme.Sizes.NormalFont);
+
+            // NOTE headlines have a big top margin unless they are the first item (eg. beginning of a page)s
+            headline.MeasureInvalidated += (sender, e) => {
+                if (headline.Parent is Layout layout)
+                    if (layout.Children.FirstOrDefault() == headline)
+                        headline.Margin(0, 0, 0, Theme.Sizes.NormalFont);
+            };
+
+            return headline;
         }
 
         public StackLayout Action(string text = "", string icon = null)
@@ -172,12 +182,14 @@ namespace InterfaceBuilder
 
         public ContentPage Page(string title, View content)
         {
-            return new ContentPage {
+            var page = new ContentPage {
                 Title = title,
                 Content = content,
                 BackgroundColor = Theme.KeyColors.Background,
                 Padding = Theme.Sizes.PageMargin,
             };
+
+            return page;
         }
 
         public ContentPage ScrollPage(string title, View content)

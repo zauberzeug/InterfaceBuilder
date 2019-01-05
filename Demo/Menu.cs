@@ -19,8 +19,8 @@ namespace Demo
             this.ui = ui;
             this.masterDetail = masterDetail;
 
-            Page = ui.Page("Menu", ui.Stack().With(
-                ui.Headline("InterfaceBuilder Demos").Margin(0, 30),
+            Page = ui.Page("Menu", ui.Stack().Margin(0, 30).With(
+                ui.Headline("InterfaceBuilder Demos"),
                 ui.Stack().With(
                     modules.Select(m => CreateMenuItem(m)).ToArray()
                 )

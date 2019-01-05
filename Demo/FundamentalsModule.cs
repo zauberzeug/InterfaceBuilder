@@ -40,7 +40,8 @@ namespace Demo
                         IconName.Compass, IconName.Dashboard, IconName.Download
                     }.Select(ui.Icon).ToArray()
                 ),
-                ui.Label("Note: Add the Elusive-Icons.ttf from the Demo to your App").FontSize(10),
+                ui.Label("Note: Add the Elusive-Icons.ttf from the Demo to your App. " +
+                         "On iOS you must also define it in the Info.plist.").FontSize(10),
 
                 ui.Headline("Tapable Views"),
                 ui.Flex().Margin(20).With(
@@ -54,7 +55,7 @@ namespace Demo
                 ui.Headline("Messages"),
                 messageLabel = ui.Label("this text changes when tapping the view above"),
                 ui.Entry("modify toolbar item").BindTo(toolbarItem, Entry.TextProperty, MenuItem.TextProperty)
-            ).ColorizeEverything());
+            ));
 
             Page.ToolbarItems.Add(toolbarItem);
         }
