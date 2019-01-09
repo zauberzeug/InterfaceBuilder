@@ -19,7 +19,7 @@ namespace InterfaceBuilder
         {
             return new Label {
                 HorizontalTextAlignment = TextAlignment.Start,
-                TextColor = Theme.KeyColors.Text,
+                TextColor = Theme.Colors.Primary.Foreground,
                 FontSize = Theme.Sizes.NormalFont,
                 VerticalTextAlignment = TextAlignment.Center,
                 Margin = new Thickness(0, Theme.Sizes.NormalFont / 2),
@@ -31,7 +31,7 @@ namespace InterfaceBuilder
         {
             return new Button {
                 FontSize = Theme.Sizes.NormalFont,
-                TextColor = Theme.KeyColors.Text,
+                TextColor = Theme.Colors.Accent.Foreground,
                 Text = text,
             };
         }
@@ -68,7 +68,7 @@ namespace InterfaceBuilder
 <body>" + content + "</body></html>";
             return new WebView {
                 Source = new HtmlWebViewSource { Html = content },
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Xamarin.Forms.Color.Transparent,
                 IsEnabled = false,
             }.FillVertical();
         }
@@ -93,11 +93,11 @@ namespace InterfaceBuilder
         public Xamarin.Forms.Entry Entry(string placeholder = "")
         {
             return new Xamarin.Forms.Entry {
-                TextColor = Theme.KeyColors.Text,
+                TextColor = Theme.Colors.Primary.Foreground,
                 FontSize = Theme.Sizes.NormalFont,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Placeholder = placeholder,
-                BackgroundColor = Theme.KeyColors.Background,
+                BackgroundColor = Theme.Colors.Primary.Background,
                 Margin = new Thickness(0, Theme.Sizes.NormalFont / 2.0),
             };
         }
@@ -128,7 +128,7 @@ namespace InterfaceBuilder
         public StackLayout Stack()
         {
             return new StackLayout {
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Xamarin.Forms.Color.Transparent,
                 Spacing = 0,
             };
         }
@@ -141,14 +141,14 @@ namespace InterfaceBuilder
         public BoxView Box()
         {
             return new BoxView {
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Xamarin.Forms.Color.Transparent,
             };
         }
 
         public BoxView Box(int size)
         {
             return new BoxView {
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Xamarin.Forms.Color.Transparent,
                 WidthRequest = size,
                 HeightRequest = size,
                 Margin = new Thickness(0, Theme.Sizes.NormalFont / 2.0),
@@ -158,10 +158,10 @@ namespace InterfaceBuilder
         public Frame Frame(View content)
         {
             return new Frame {
-                BackgroundColor = Theme.KeyColors.Background,
+                BackgroundColor = Theme.Colors.Primary.Background,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Content = content,
-                BorderColor = Theme.KeyColors.Text,
+                BorderColor = Theme.Colors.Primary.Background.WithLuminosity(0.5),
                 HasShadow = false,
                 CornerRadius = 0
             }.Padding(5);
@@ -197,7 +197,7 @@ namespace InterfaceBuilder
             var page = new ContentPage {
                 Title = title,
                 Content = content,
-                BackgroundColor = Theme.KeyColors.Background,
+                BackgroundColor = Theme.Colors.Primary.Background,
                 Padding = Theme.Sizes.PageMargin,
             };
 
@@ -213,9 +213,9 @@ namespace InterfaceBuilder
         {
             var page = new TopTabbedPage {
                 Title = title,
-                BarTextColor = Theme.KeyColors.Background,
-                BarIndicatorColor = Theme.KeyColors.TintColor,
-                BarBackgroundColor = Theme.KeyColors.SecondaryColor,
+                BarTextColor = Theme.Colors.Accent.Background,
+                BarIndicatorColor = Theme.Colors.Accent.Background,
+                BarBackgroundColor = Theme.Colors.Accent.Background,
             };
 
             pages.ForEach(p => page.Children.Add(p));
@@ -231,8 +231,8 @@ namespace InterfaceBuilder
         public Xamarin.Forms.NavigationPage NavigationPage(Xamarin.Forms.Page page)
         {
             var navigation = new Xamarin.Forms.NavigationPage(page);
-            navigation.BarBackgroundColor = Theme.KeyColors.SecondaryColor;
-            navigation.BarTextColor = Theme.KeyColors.TintColor;
+            navigation.BarBackgroundColor = Theme.Colors.Accent.Background;
+            navigation.BarTextColor = Theme.Colors.Accent.Foreground;
             return navigation.WithSafeAreas();
         }
 
@@ -263,7 +263,7 @@ namespace InterfaceBuilder
                 VerticalTextAlignment = TextAlignment.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
                 MinimumWidthRequest = 1e6, // https://stackoverflow.com/questions/41861020/
-                TextColor = Theme.KeyColors.Text,
+                TextColor = Theme.Colors.Primary.Foreground,
                 FontFamily = fontFamily,
                 FontSize = 25,
             };

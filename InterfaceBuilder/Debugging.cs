@@ -6,12 +6,12 @@ namespace InterfaceBuilder
 {
     public static class Debugging
     {
-        static readonly List<Color> colors = new List<Color> {
-            Color.FromHex("eff3ff"),
-            Color.FromHex("bdd7e7"),
-            Color.FromHex("6baed6"),
-            Color.FromHex("3182bd"),
-            Color.FromHex("08519c"),
+        static readonly List<Xamarin.Forms.Color> colors = new List<Xamarin.Forms.Color> {
+            Xamarin.Forms.Color.FromHex("eff3ff"),
+            Xamarin.Forms.Color.FromHex("bdd7e7"),
+            Xamarin.Forms.Color.FromHex("6baed6"),
+            Xamarin.Forms.Color.FromHex("3182bd"),
+            Xamarin.Forms.Color.FromHex("08519c"),
         };
         // NOTE: from http://colorbrewer2.org/#type=sequential&scheme=Blues&n=5
 

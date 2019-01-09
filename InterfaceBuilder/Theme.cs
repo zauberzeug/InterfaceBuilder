@@ -5,15 +5,7 @@ namespace InterfaceBuilder
     public class Theme
     {
         public Sizes Sizes = new Sizes();
-        public KeyColors KeyColors = new KeyColors();
-        public Colors Colors = new Colors();
-
-        public Theme()
-        {
-            KeyColors.Background = Colors.White;
-            KeyColors.Text = Colors.Black;
-            KeyColors.SecondaryColor = Colors.DarkGray;
-        }
+        public ColorScheme Colors = new ColorScheme();
     }
 
     public class Sizes
@@ -23,22 +15,35 @@ namespace InterfaceBuilder
         public int PageMargin = 20;
     }
 
-    public class KeyColors
+    public class ColorScheme
     {
-        public Color Text = Color.Black;
-        public Color Background = Color.White;
-        public Color SecondaryColor = Color.Black;
-        public Color TintColor = Color.White;
+        public ColorPair Primary = new ColorPair();
+        public ColorPair Accent = new ColorPair("EEE", "333");
+        public ColorPair Error = new ColorPair(Color.White, Color.OrangeRed);
     }
 
-    public class Colors
+    public class ColorPair
     {
-        public Color Green = Color.FromHex("BBCA72");
-        public Color LightGray = Color.FromHex("EFEFEF");
-        public Color DarkGray = Color.FromHex("3A3E42");
-        public Color Gray = Color.FromHex("CCCCCC");
-        public Color White = Color.White;
-        public Color Yellow = Color.FromHex("FFDD00");
-        public Color Black = Color.FromHex("222");
+        public Color Foreground = Color.Black;
+        public Color Background = Color.White;
+
+        public ColorPair() { }
+
+        public ColorPair(Color foreground, Color background)
+        {
+            Foreground = foreground;
+            Background = background;
+        }
+
+        public ColorPair(string foreground, string background)
+        {
+            Foreground = Color.FromHex(foreground);
+            Background = Color.FromHex(background);
+        }
+
+        public ColorPair Flip()
+        {
+            return new ColorPair(Background, Foreground);
+        }
     }
 }

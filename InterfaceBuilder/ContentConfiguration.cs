@@ -25,7 +25,7 @@ namespace InterfaceBuilder
             return layout;
         }
 
-        public static Button Color(this Button button, Color color)
+        public static Button Color(this Button button, Xamarin.Forms.Color color)
         {
             button.BackgroundColor = color;
             return button;
@@ -61,7 +61,7 @@ namespace InterfaceBuilder
             return label;
         }
 
-        public static Label Color(this Label label, Color color)
+        public static Label Color(this Label label, Xamarin.Forms.Color color)
         {
             label.TextColor = color;
             return label;
@@ -94,7 +94,7 @@ namespace InterfaceBuilder
             return label;
         }
 
-        public static Frame Color(this Frame frame, Color color)
+        public static Frame Color(this Frame frame, Xamarin.Forms.Color color)
         {
             frame.BorderColor = color;
             return frame;
@@ -106,19 +106,19 @@ namespace InterfaceBuilder
             return frame;
         }
 
-        public static Slider MinimumTrackColor(this Slider slider, Color color)
+        public static Slider MinimumTrackColor(this Slider slider, Xamarin.Forms.Color color)
         {
             slider.MinimumTrackColor = color;
             return slider;
         }
 
-        public static Slider MaximumTrackColor(this Slider slider, Color color)
+        public static Slider MaximumTrackColor(this Slider slider, Xamarin.Forms.Color color)
         {
             slider.MaximumTrackColor = color;
             return slider;
         }
 
-        public static Slider ThumbColor(this Slider slider, Color color)
+        public static Slider ThumbColor(this Slider slider, Xamarin.Forms.Color color)
         {
             slider.ThumbColor = color;
             return slider;
@@ -334,7 +334,7 @@ namespace InterfaceBuilder
             return page;
         }
 
-        public static T Background<T>(this T view, Color color) where T : VisualElement
+        public static T Background<T>(this T view, Xamarin.Forms.Color color) where T : VisualElement
         {
             view.BackgroundColor = color;
             return view;

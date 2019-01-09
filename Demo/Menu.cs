@@ -14,9 +14,12 @@ namespace Demo
 
         public Page Page { get; private set; }
 
-        public Menu(UI ui, MasterDetailPage masterDetail, IReadOnlyList<Module> modules)
+        public Menu(UI mainUI, MasterDetailPage masterDetail, IReadOnlyList<Module> modules)
         {
-            this.ui = ui;
+            ui = mainUI.Clone();
+            ui.Theme.Colors.Primary = mainUI.Theme.Colors.Accent.Flip();
+            ui.Theme.Colors.Accent = mainUI.Theme.Colors.Primary.Flip();
+
             this.masterDetail = masterDetail;
 
             Page = ui.Page("Menu", ui.Stack().Margin(0, 30).With(
