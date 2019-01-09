@@ -16,6 +16,8 @@ namespace Demo.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            SVG.Forms.Plugin.iOS.SvgImageRenderer.Init();
+
             LoadApplication(new App());
 
             // https://stackoverflow.com/a/17665159/364388

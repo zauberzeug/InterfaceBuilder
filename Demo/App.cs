@@ -1,7 +1,6 @@
-﻿using InterfaceBuilder;
+﻿using System.Collections.Generic;
+using InterfaceBuilder;
 using Xamarin.Forms;
-using System;
-using System.Collections.Generic;
 
 namespace Demo
 {
@@ -15,6 +14,7 @@ namespace Demo
                 new FundamentalsModule(ui),
                 new ImageModule(ui),
                 new WebModule(ui),
+                new SvgModule(ui),
             };
 
             var masterDetail = new MasterDetailPage();

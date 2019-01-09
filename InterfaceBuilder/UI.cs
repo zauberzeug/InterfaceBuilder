@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using System.Linq;
+using SVG.Forms.Plugin.Abstractions;
 
 namespace InterfaceBuilder
 {
@@ -76,6 +77,16 @@ namespace InterfaceBuilder
         {
             return new WebView {
                 Source = url
+            };
+        }
+
+        public SvgImage Svg(string ressourceId)
+        {
+            return new SvgImage {
+                SvgAssembly = FindCallingAssembly(),
+                SvgPath = ressourceId,
+                //WidthRequest = 100,
+                //HeightRequest = 100,
             };
         }
 
