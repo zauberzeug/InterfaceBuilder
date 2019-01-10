@@ -46,10 +46,7 @@ namespace Demo
                 ui.Headline("Tapable Views"),
                 ui.Flex().Margin(20).With(
                     ui.Label("Show Alert").OnTap(() => Page.DisplayAlert("Alert", "Via Xamarin.Forms", "OK")),
-                    ui.Frame(
-                        ui.Label("Write Message").Color(ui.Theme.Colors.Accent.Foreground)
-                    ).NoBorder().Background(ui.Theme.Colors.Accent.Background).
-                      OnTap(() => Write("You can release now"), () => Write("press and hold")),
+                    ui.Button("Write Message").OnTap(() => Write("You can release now"), () => Write("press and hold")),
                     ui.Label("2s delay").OnTap(async () => await Task.Delay(TimeSpan.FromSeconds(2)))
                 ),
 

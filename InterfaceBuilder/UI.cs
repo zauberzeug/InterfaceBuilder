@@ -27,13 +27,11 @@ namespace InterfaceBuilder
             }.Text(text);
         }
 
-        public Button Button(string text = "")
+        public Frame Button(string text = "")
         {
-            return new Button {
-                FontSize = Theme.Sizes.NormalFont,
-                TextColor = Theme.Colors.Accent.Foreground,
-                Text = text,
-            };
+            return Frame(
+                Label(text).Color(Theme.Colors.Accent.Foreground)
+            ).NoBorder().Padding(Theme.Sizes.NormalFont / 2).Background(Theme.Colors.Accent.Background);
         }
 
         public Image Image(string resourceId = "")
