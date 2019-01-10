@@ -154,12 +154,6 @@ namespace InterfaceBuilder
             return flex;
         }
 
-        public static FlexLayout StretchChildren(this FlexLayout flex)
-        {
-            flex.AlignItems = FlexAlignItems.Stretch;
-            return flex;
-        }
-
         public static FlexLayout Wrap(this FlexLayout flex)
         {
             flex.Wrap = FlexWrap.Wrap;
@@ -193,10 +187,12 @@ namespace InterfaceBuilder
             return layout;
         }
 
-        public static FlexLayout Stretch(this FlexLayout layout)
+        /// <summary>Stretchs the children on the cross axis via AlignItems and AlignContent property.</summary>
+        public static FlexLayout StretchChildren(this FlexLayout flex)
         {
-            layout.AlignContent = FlexAlignContent.Stretch;
-            return layout;
+            flex.AlignContent = FlexAlignContent.Stretch;
+            flex.AlignItems = FlexAlignItems.Stretch;
+            return flex;
         }
 
         public static FlexLayout AsColumn(this FlexLayout layout)
