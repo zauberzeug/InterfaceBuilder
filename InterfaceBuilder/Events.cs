@@ -41,10 +41,16 @@ namespace InterfaceBuilder
         {
             var touchEffect = new TouchEffect();
             touchEffect.TouchAction += (s, e) => {
-                if (e.Type == TouchActionType.Pressed)
+                if (e.Type == TouchActionType.Pressed) {
+                    view.Opacity = 0.5;
+                    view.IsEnabled = false;
                     onPressed();
-                if (e.Type == TouchActionType.Released)
+                }
+                if (e.Type == TouchActionType.Released) {
+                    view.Opacity = 1;
+                    view.IsEnabled = true;
                     onReleased();
+                }
             };
             view.Effects.Add(touchEffect);
 
