@@ -11,9 +11,9 @@ namespace Demo
             var ui = new UI();
 
             var modules = new List<Module> {
+                new WebModule(ui),
                 new FundamentalsModule(ui),
                 new ImageModule(ui),
-                new WebModule(ui),
                 new SvgModule(ui),
             };
 

@@ -6,6 +6,7 @@ using Xamarin.Forms.Internals;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using System.Linq;
 using SVG.Forms.Plugin.Abstractions;
+using LabelHtml.Forms.Plugin.Abstractions;
 
 namespace InterfaceBuilder
 {
@@ -44,31 +45,17 @@ namespace InterfaceBuilder
             return image;
         }
 
-        public WebView Html(string content)
+        public HtmlLabel Html(string content)
         {
             var ressource = FindCallingAssembly().GetManifestResourceStream(content);
 
             if (ressource != null)
                 content = new StreamReader(ressource).ReadToEnd();
 
-            if (!content.Contains("<head>"))
-                content = @"<html>
-<head>
-     <style type='text/css'>
-        body {
-            margin: 0; padding: 0;
-            background-color: transparent;
-            font-family: sans-serif;
-            font-size: " + Theme.Sizes.NormalFont + @"px;
-        }
-    </style>
-</head>
-<body>" + content + "</body></html>";
-            return new WebView {
-                Source = new HtmlWebViewSource { Html = content },
-                BackgroundColor = Xamarin.Forms.Color.Transparent,
-                IsEnabled = false,
-            }.FillVertical();
+
+            return new HtmlLabel {
+                Text = content,
+            }.FontSize(Theme.Sizes.NormalFont);
         }
 
         public WebView Website(string url)

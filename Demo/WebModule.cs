@@ -19,14 +19,14 @@ namespace Demo
                 ui.Html("demo.html"),
 
                 ui.Headline("HTML snippets"),
-                ui.Html(@"<p>You can also pass just some html code as string.<br/><br/>
-                    The interface builder will wrap it with head/body acording 
-                    to your theme if none is provided.</p>"),
+                ui.Html(@"<p>You can also pass just some html code <strong>as string.</strong></p>"),
 
                 ui.Headline("Mixing with other Emelents"),
-                ui.Label("As you can see, UI.Html behaves similar to normal Xamarin.Forms Elements. " +
-                    "It's not scrollable by itself and only takes the hight it requires for it's content. " +
-                    "All interaction in HTML is disabled by default to make it work seamlesly inside a scroll view.")
+                ui.Label("As you can see, UI.Html behaves similar to a normal Xamarin.Forms Label."),
+                ui.Html(@"It's not scrollable by itself and only takes the hight it requires for it's content.
+                    This can be done thanks to the awesome NuGet Package 
+                    <a href='https://github.com/matteobortolazzo/HtmlLabelPlugin'>Xam.Plugin.HtmlLabel</a>.
+                    because it uses native Label implementations its verry quick and well - behaving.")
             )));
         }
     }

@@ -49,13 +49,13 @@ namespace InterfaceBuilder
             return label;
         }
 
-        public static Label FontSize(this Label label, int size)
+        public static T FontSize<T>(this T label, int size) where T : Label
         {
             label.FontSize = size;
             return label;
         }
 
-        public static Label Font(this Label label, string family)
+        public static T Font<T>(this T label, string family) where T : Label
         {
             label.FontFamily = family;
             return label;
