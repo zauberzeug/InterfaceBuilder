@@ -92,14 +92,31 @@ namespace InterfaceBuilder
             var headline = Label(text).Bold().FontSize(Theme.Sizes.HeadlineFont).
                       Margin(0, 2 * Theme.Sizes.NormalFont, 0, Theme.Sizes.NormalFont);
 
-            // NOTE headlines have a big top margin unless they are the first item (eg. beginning of a page)s
+            return headline; // TODO think about how we want to layout
+
+            // NOTE headlines have a big top margin unless they are the first item (eg. beginning of a page)
             headline.MeasureInvalidated += (sender, e) => {
-                if (headline.Parent is Layout layout)
-                    if (layout.Children.FirstOrDefault() == headline)
-                        headline.Margin(0, 0, 0, Theme.Sizes.NormalFont);
+                Element container = headline;
+                while (!(container.Parent is Xamarin.Forms.Page))
+                    container = container.Parent;
+
+                var firstLabel = FindFirstLabel(container);
+
+                if (firstLabel == headline)
+                    headline.Margin(0, 0, 0, Theme.Sizes.NormalFont);
             };
 
             return headline;
+        }
+
+        Label FindFirstLabel(Element container)
+        {
+            if (container is Layout layout)
+                FindFirstLabel(layout.Children.FirstOrDefault());
+
+            if (container is Label label)
+                return label;
+            else return null;
         }
 
         public StackLayout Action(string text = "", string icon = null)
