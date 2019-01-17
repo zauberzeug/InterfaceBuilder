@@ -282,6 +282,18 @@ namespace InterfaceBuilder
 
         public Xamarin.Forms.Picker Picker(IList options) => new Xamarin.Forms.Picker {
             ItemsSource = options,
+            TextColor = Theme.Colors.Primary.Foreground,
+            FontSize = Theme.Sizes.NormalFont,
+        };
+
+        public Xamarin.Forms.DatePicker DatePicker() => new Xamarin.Forms.DatePicker {
+            TextColor = Theme.Colors.Primary.Foreground,
+            FontSize = Theme.Sizes.NormalFont,
+        };
+
+        public Xamarin.Forms.TimePicker TimePicker() => new Xamarin.Forms.TimePicker {
+            TextColor = Theme.Colors.Primary.Foreground,
+            FontSize = Theme.Sizes.NormalFont,
         };
 
         static Assembly FindCallingAssembly()

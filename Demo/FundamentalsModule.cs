@@ -55,7 +55,11 @@ namespace Demo
                 ui.Entry("modify toolbar item").BindTo(toolbarItem, Entry.TextProperty, MenuItem.TextProperty),
 
                 ui.Headline("Picker"),
-                ui.Picker(new string[] { "A", "B", "C" })
+                ui.Flex().With(
+                    ui.Picker(new string[] { "Item A", "Item B", "Item C" }).Width(100).Select(0),
+                    ui.TimePicker().Select(DateTime.Now.TimeOfDay),
+                    ui.DatePicker().Select(DateTime.Now)
+                )
             ));
 
             Page.ToolbarItems.Add(toolbarItem);

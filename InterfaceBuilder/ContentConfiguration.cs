@@ -297,12 +297,12 @@ namespace InterfaceBuilder
             return layout;
         }
 
-        public static T With<T, V>(this T layout, Action<V> action, params V[] views) where T : Layout<View> where V : View
+        public static T ForEach<T, V>(this T layout, Action<V> action) where T : Layout<View> where V : View
         {
-            views.ForEach(v => action(v));
-            layout.Add(views);
+            layout.Children.ForEach(v => action((V)v));
             return layout;
         }
+
 
         public static T Content<T>(this ContentPage page, T view) where T : View
         {
@@ -405,6 +405,24 @@ namespace InterfaceBuilder
         public static Picker DisplayBinding(this Picker picker, BindingBase binding)
         {
             picker.ItemDisplayBinding = binding;
+            return picker;
+        }
+
+        public static Picker Select(this Picker picker, int index)
+        {
+            picker.SelectedIndex = index;
+            return picker;
+        }
+
+        public static TimePicker Select(this TimePicker picker, TimeSpan time)
+        {
+            picker.Time = time;
+            return picker;
+        }
+
+        public static DatePicker Select(this DatePicker picker, DateTime date)
+        {
+            picker.Date = date;
             return picker;
         }
     }
