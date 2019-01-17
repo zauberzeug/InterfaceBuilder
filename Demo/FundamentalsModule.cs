@@ -52,7 +52,10 @@ namespace Demo
 
                 ui.Headline("Messages"),
                 messageLabel = ui.Label("this text changes when tapping the view above"),
-                ui.Entry("modify toolbar item").BindTo(toolbarItem, Entry.TextProperty, MenuItem.TextProperty)
+                ui.Entry("modify toolbar item").BindTo(toolbarItem, Entry.TextProperty, MenuItem.TextProperty),
+
+                ui.Headline("Picker"),
+                ui.Picker(new string[] { "A", "B", "C" })
             ));
 
             Page.ToolbarItems.Add(toolbarItem);

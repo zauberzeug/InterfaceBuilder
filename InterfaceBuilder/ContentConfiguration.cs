@@ -401,5 +401,11 @@ namespace InterfaceBuilder
             layout.Padding = new Thickness(padding);
             return layout;
         }
+
+        public static Picker DisplayBinding(this Picker picker, BindingBase binding)
+        {
+            picker.ItemDisplayBinding = binding;
+            return picker;
+        }
     }
 }

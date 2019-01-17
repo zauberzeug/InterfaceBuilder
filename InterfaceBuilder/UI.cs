@@ -7,6 +7,7 @@ using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using System.Linq;
 using SVG.Forms.Plugin.Abstractions;
 using LabelHtml.Forms.Plugin.Abstractions;
+using System.Collections;
 
 namespace InterfaceBuilder
 {
@@ -278,6 +279,10 @@ namespace InterfaceBuilder
                 Minimum = min,
             };
         }
+
+        public Xamarin.Forms.Picker Picker(IList options) => new Xamarin.Forms.Picker {
+            ItemsSource = options,
+        };
 
         static Assembly FindCallingAssembly()
         {
