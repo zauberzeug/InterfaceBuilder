@@ -44,7 +44,7 @@ namespace Demo
                          "On iOS you must also define it in the Info.plist.").FontSize(10),
 
                 ui.Headline("Tapable Views"),
-                ui.Flex().Margin(20).With(
+                ui.Flex().Margin(20, 0).With(
                     ui.Label("Show Alert").OnTap(() => Page.DisplayAlert("Alert", "Via Xamarin.Forms", "OK")),
                     ui.Button("Write Message").OnTap(() => Write("You can release now"), () => Write("press and hold")),
                     ui.Label("2s delay").OnTap(async () => await Task.Delay(TimeSpan.FromSeconds(2)))

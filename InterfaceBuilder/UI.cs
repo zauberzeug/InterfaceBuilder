@@ -90,7 +90,7 @@ namespace InterfaceBuilder
         public Label Headline(string text = "")
         {
             var headline = Label(text).Bold().FontSize(Theme.Sizes.HeadlineFont).
-                      Margin(0, 2 * Theme.Sizes.NormalFont, 0, Theme.Sizes.NormalFont);
+                      Margin(0, Theme.Sizes.NormalFont, 0, Theme.Sizes.NormalFont);
 
             return headline; // TODO think about how we want to layout
 
