@@ -31,7 +31,7 @@ namespace InterfaceBuilder
         public Frame Button(string text = "")
         {
             return Frame(
-                Label(text).Color(Theme.Colors.Accent.Foreground)
+                Label(text).Center().Color(Theme.Colors.Accent.Foreground)
             ).NoBorder().Padding(Theme.Sizes.NormalFont / 2).Background(Theme.Colors.Accent.Background);
         }
 
