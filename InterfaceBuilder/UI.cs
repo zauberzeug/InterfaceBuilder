@@ -5,9 +5,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using System.Linq;
-using SVG.Forms.Plugin.Abstractions;
 using LabelHtml.Forms.Plugin.Abstractions;
 using System.Collections;
+using FFImageLoading.Svg.Forms;
 
 namespace InterfaceBuilder
 {
@@ -66,11 +66,10 @@ namespace InterfaceBuilder
             };
         }
 
-        public SvgImage Svg(string ressourceId)
+        public SvgCachedImage Svg(string ressourceId)
         {
-            return new SvgImage {
-                SvgAssembly = FindCallingAssembly(),
-                SvgPath = ressourceId,
+            return new SvgCachedImage {
+                Source = SvgImageSource.FromResource(ressourceId, FindCallingAssembly())
                 //WidthRequest = 100,
                 //HeightRequest = 100,
             };
@@ -166,7 +165,7 @@ namespace InterfaceBuilder
                 Content = content,
                 BorderColor = Theme.Colors.Primary.Background.WithLuminosity(0.5),
                 HasShadow = false,
-                CornerRadius = 0
+                CornerRadius = 0,
             }.Padding(5);
         }
 

@@ -19,7 +19,7 @@ namespace Demo.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            SVG.Forms.Plugin.Droid.SvgImageRenderer.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
 
             LoadApplication(new App());
         }

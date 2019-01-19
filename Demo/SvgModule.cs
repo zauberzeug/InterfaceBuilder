@@ -19,10 +19,11 @@ namespace Demo
                 ui.Svg("logo.svg").Height(200),
 
                 ui.Headline("Remarks"),
-                ui.Label("To load svg grapics you need to initialize the renderer wit SvgImageRenderer.Init(); " +
-                         "after calling Xamarin.Forms.Init(); on each plattform."),
-                ui.Label("Also note that the svg library is a bit picky with the size definition inside the svg. " +
-                         "make sure the size parameters are definded in px not mm or someting else.")
+                ui.Label("To load svg grapics you need to initialize the renderer with " +
+                         "FFImageLoading.Forms.Platform.CachedImageRenderer.Init(); " +
+                         "after calling Xamarin.Forms.Init(); on each plattform. "),
+                ui.Label("Sometimes svg's are not well formed and need to be cleand " +
+                         "(for example with console tool svgo: https://github.com/svg/svgo)")
             )));
         }
     }
