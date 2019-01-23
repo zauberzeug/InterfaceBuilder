@@ -17,7 +17,7 @@ namespace InterfaceBuilder
 
         public UI(Theme theme = null) => this.Theme = theme ?? new Theme();
 
-        public Label Label(string text = "")
+        public virtual Label Label(string text = "")
         {
             return new Label {
                 HorizontalTextAlignment = TextAlignment.Start,
@@ -29,14 +29,14 @@ namespace InterfaceBuilder
             }.Text(text);
         }
 
-        public Frame Button(string text = "")
+        public virtual Frame Button(string text = "")
         {
             return Frame(
                 Label(text).Center().Color(Theme.Colors.Accent.Foreground)
             ).NoBorder().Padding(Theme.Sizes.NormalFont / 2).Background(Theme.Colors.Accent.Background);
         }
 
-        public Image Image(string resourceId = "")
+        public virtual Image Image(string resourceId = "")
         {
             var image = new Image {
                 Source = ImageSource.FromResource(resourceId, FindCallingAssembly()),
@@ -46,7 +46,7 @@ namespace InterfaceBuilder
             return image;
         }
 
-        public HtmlLabel Html(string content)
+        public virtual HtmlLabel Html(string content)
         {
             var ressource = FindCallingAssembly().GetManifestResourceStream(content);
 
@@ -59,14 +59,14 @@ namespace InterfaceBuilder
             }.FontSize(Theme.Sizes.NormalFont);
         }
 
-        public WebView Website(string url)
+        public virtual WebView Website(string url)
         {
             return new WebView {
                 Source = url
             };
         }
 
-        public SvgCachedImage Svg(string ressourceId)
+        public virtual SvgCachedImage Svg(string ressourceId)
         {
             return new SvgCachedImage {
                 Source = SvgImageSource.FromResource(ressourceId, FindCallingAssembly())
@@ -75,7 +75,7 @@ namespace InterfaceBuilder
             };
         }
 
-        public Xamarin.Forms.Entry Entry(string placeholder = "")
+        public virtual Xamarin.Forms.Entry Entry(string placeholder = "")
         {
             return new Xamarin.Forms.Entry {
                 TextColor = Theme.Colors.Primary.Foreground,
@@ -87,7 +87,7 @@ namespace InterfaceBuilder
             };
         }
 
-        public Label Headline(string text = "")
+        public virtual Label Headline(string text = "")
         {
             var headline = Label(text).Bold().FontSize(Theme.Sizes.HeadlineFont).
                       Margin(0, Theme.Sizes.NormalFont, 0, Theme.Sizes.NormalFont);
@@ -119,7 +119,7 @@ namespace InterfaceBuilder
             else return null;
         }
 
-        public StackLayout Action(string text = "", string icon = null)
+        public virtual StackLayout Action(string text = "", string icon = null)
         {
             var stack = Stack().Horizontal().Padding(new Thickness(25, 0));
             if (icon != null)
@@ -127,7 +127,7 @@ namespace InterfaceBuilder
             return stack.With(Label(text));
         }
 
-        public StackLayout Stack()
+        public virtual StackLayout Stack()
         {
             return new StackLayout {
                 BackgroundColor = Xamarin.Forms.Color.Transparent,
@@ -135,19 +135,19 @@ namespace InterfaceBuilder
             };
         }
 
-        public ActivityIndicator ActivityIndicator()
+        public virtual ActivityIndicator ActivityIndicator()
         {
             return new ActivityIndicator { IsRunning = true, IsVisible = true, Margin = 10 };
         }
 
-        public BoxView Box()
+        public virtual BoxView Box()
         {
             return new BoxView {
                 BackgroundColor = Xamarin.Forms.Color.Transparent,
             };
         }
 
-        public BoxView Box(int size)
+        public virtual BoxView Box(int size)
         {
             return new BoxView {
                 BackgroundColor = Xamarin.Forms.Color.Transparent,
@@ -157,7 +157,7 @@ namespace InterfaceBuilder
             };
         }
 
-        public Frame Frame(View content)
+        public virtual Frame Frame(View content)
         {
             return new Frame {
                 BackgroundColor = Theme.Colors.Primary.Background,
@@ -169,14 +169,14 @@ namespace InterfaceBuilder
             }.Padding(5);
         }
 
-        public Xamarin.Forms.ScrollView Scrollable(View content)
+        public virtual Xamarin.Forms.ScrollView Scrollable(View content)
         {
             return new Xamarin.Forms.ScrollView {
                 Content = content
             };
         }
 
-        public FlexLayout Flex()
+        public virtual FlexLayout Flex()
         {
             return new FlexLayout() {
                 AlignItems = FlexAlignItems.Center,
@@ -186,7 +186,7 @@ namespace InterfaceBuilder
             };
         }
 
-        public MasterDetailPage MasterDetailPage(ContentPage menu, Xamarin.Forms.NavigationPage initialContent)
+        public virtual MasterDetailPage MasterDetailPage(ContentPage menu, Xamarin.Forms.NavigationPage initialContent)
         {
             return new MasterDetailPage {
                 Master = menu,
@@ -194,7 +194,7 @@ namespace InterfaceBuilder
             };
         }
 
-        public ContentPage Page(string title, View content)
+        public virtual ContentPage Page(string title, View content)
         {
             var page = new ContentPage {
                 Title = title,
@@ -206,12 +206,12 @@ namespace InterfaceBuilder
             return page;
         }
 
-        public ContentPage ScrollPage(string title, View content)
+        public virtual ContentPage ScrollPage(string title, View content)
         {
             return Page(title, Scrollable(content));
         }
 
-        public TabbedPage TabbedPage(string title, params Xamarin.Forms.Page[] pages)
+        public virtual TabbedPage TabbedPage(string title, params Xamarin.Forms.Page[] pages)
         {
             var page = new TopTabbedPage {
                 Title = title,
@@ -225,12 +225,12 @@ namespace InterfaceBuilder
             return page.WithSafeAreas();
         }
 
-        public Xamarin.Forms.NavigationPage NavigationPage(string title, View content)
+        public virtual Xamarin.Forms.NavigationPage NavigationPage(string title, View content)
         {
             return NavigationPage(Page(title, content)).WithSafeAreas();
         }
 
-        public Xamarin.Forms.NavigationPage NavigationPage(Xamarin.Forms.Page page)
+        public virtual Xamarin.Forms.NavigationPage NavigationPage(Xamarin.Forms.Page page)
         {
             var navigation = new Xamarin.Forms.NavigationPage(page);
             navigation.BarBackgroundColor = Theme.Colors.Accent.Background;
@@ -238,21 +238,21 @@ namespace InterfaceBuilder
             return navigation.WithSafeAreas();
         }
 
-        public BoxView HorizontalFill()
+        public virtual BoxView HorizontalFill()
         {
             return new BoxView() {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
             };
         }
 
-        public BoxView VerticalFill()
+        public virtual BoxView VerticalFill()
         {
             return new BoxView() {
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
         }
 
-        public Label Icon(string icon)
+        public virtual Label Icon(string icon)
         {
             var fontFamily = "";
             if (Device.RuntimePlatform == Device.Android)
@@ -271,7 +271,7 @@ namespace InterfaceBuilder
             };
         }
 
-        public Xamarin.Forms.Slider Slider(double min, double max)
+        public virtual Xamarin.Forms.Slider Slider(double min, double max)
         {
             return new Xamarin.Forms.Slider {
                 Maximum = max, // Set max before min to avoid crash
@@ -279,18 +279,18 @@ namespace InterfaceBuilder
             };
         }
 
-        public Xamarin.Forms.Picker Picker(IList options) => new Xamarin.Forms.Picker {
+        public virtual Xamarin.Forms.Picker Picker(IList options) => new Xamarin.Forms.Picker {
             ItemsSource = options,
             TextColor = Theme.Colors.Primary.Foreground,
             FontSize = Theme.Sizes.NormalFont,
         };
 
-        public Xamarin.Forms.DatePicker DatePicker() => new Xamarin.Forms.DatePicker {
+        public virtual Xamarin.Forms.DatePicker DatePicker() => new Xamarin.Forms.DatePicker {
             TextColor = Theme.Colors.Primary.Foreground,
             FontSize = Theme.Sizes.NormalFont,
         };
 
-        public Xamarin.Forms.TimePicker TimePicker() => new Xamarin.Forms.TimePicker {
+        public virtual Xamarin.Forms.TimePicker TimePicker() => new Xamarin.Forms.TimePicker {
             TextColor = Theme.Colors.Primary.Foreground,
             FontSize = Theme.Sizes.NormalFont,
         };
