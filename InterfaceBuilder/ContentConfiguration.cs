@@ -263,6 +263,10 @@ namespace InterfaceBuilder
         public static T MinHeight<T>(this T view, double size) where T : View
         {
             view.MinimumHeightRequest = size;
+
+            // MinimumHeightRequest only stops "squashing" (see https://github.com/xamarin/Xamarin.Forms/issues/2887)
+            view.SizeChanged += (s, e) => { if (view.Height < size) view.Height(size); };
+
             return view;
         }
 
@@ -281,6 +285,9 @@ namespace InterfaceBuilder
         public static T MinWidth<T>(this T view, double size) where T : View
         {
             view.MinimumWidthRequest = size;
+
+            // MinimumWidthRequest only stops "squashing" (see https://github.com/xamarin/Xamarin.Forms/issues/2887)
+            view.SizeChanged += (s, e) => { if (view.Width < size) view.Width(size); };
             return view;
         }
 
