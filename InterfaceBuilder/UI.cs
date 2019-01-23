@@ -169,6 +169,11 @@ namespace InterfaceBuilder
             }.Padding(5);
         }
 
+        public virtual ContentView ContentView(View content = null)
+        {
+            return new ContentView() { Content = content };
+        }
+
         public virtual Xamarin.Forms.ScrollView Scrollable(View content)
         {
             return new Xamarin.Forms.ScrollView {

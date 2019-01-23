@@ -43,6 +43,12 @@ namespace InterfaceBuilder
             return entry;
         }
 
+        public static Entry Keyboard(this Entry entry, Keyboard keyboard)
+        {
+            entry.Keyboard = keyboard;
+            return entry;
+        }
+
         public static Label LineBreakMode(this Label label, LineBreakMode mode)
         {
             label.LineBreakMode = mode;
