@@ -260,9 +260,33 @@ namespace InterfaceBuilder
             return view;
         }
 
+        public static T MinHeight<T>(this T view, double size) where T : View
+        {
+            view.MinimumHeightRequest = size;
+            return view;
+        }
+
+        public static T MaxHeight<T>(this T view, double size) where T : View
+        {
+            view.MinimumHeightRequest = size;
+            return view;
+        }
+
         public static T Width<T>(this T view, double size) where T : View
         {
             view.WidthRequest = size;
+            return view;
+        }
+
+        public static T MinWidth<T>(this T view, double size) where T : View
+        {
+            view.MinimumWidthRequest = size;
+            return view;
+        }
+
+        public static T MaxWidth<T>(this T view, double size) where T : View
+        {
+            view.MinimumHeightRequest = size;
             return view;
         }
 
